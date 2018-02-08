@@ -1,4 +1,4 @@
-# beautifulSoup
+# BeautifulSoup
 Welcome to the BeautifulSoup. This program is for people who never expriencced computer languages before. It will give them a concept of the computer languages in fun ways to play with and motivate them to learn them. Also, it will be easily accessible in daily life with either website and mobile app.   
 
 ### Features
