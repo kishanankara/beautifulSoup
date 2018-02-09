@@ -1,6 +1,6 @@
 # BeautifulSoup
 
-### Minimum Vible Product
+### Minimum Viable Product
 - As a core application the user can choose a particular mood or a selection as soon as they go on the website, and based on the mood selection a playlist is shown.
 
 ### Features
