@@ -2,7 +2,7 @@
 
 ### Minimum Viable Product
 - As a core application the user chooses how they are feeling (a mood) as soon as they enter the website, and based on the mood selection a song playlist is generated.
-User story: "I want to select how I am feeling and be provided a playlist of music that matches my current mood."
+- User story: "I want to select how I am feeling and be provided a playlist of music that matches my current mood."
 
 ### Features
 1. We at BeautifulSoup understand that people's personalities influence the music they like. We want to be able to distinguish between personalities and let people select a mood that suggests music tailored to their personality.
