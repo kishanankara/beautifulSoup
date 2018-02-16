@@ -1,18 +1,28 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import ReactDOM from 'react-dom';
+import Happy from './assets/happy.png';
+import Angry from './assets/angry.png';
+
+
+class Moods extends Component{
+  render(){
+    return(
+      <div class ="moods">
+          <img src={Happy} class ="happy" width="400" height="400"/>
+          <img src={Angry} class ="angry" width="400" height="400"/>
+      </div>
+    );
+
+  }
+}
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">We the Best!</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div className="header">
+      <h1> upliftMe </h1>
+      <p> How are you feeling today? </p>
+      <Moods/>
       </div>
     );
   }
