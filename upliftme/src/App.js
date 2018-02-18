@@ -5,6 +5,7 @@ import Angry from './assets/angry.png';
 import Sad from './assets/sad.png';
 import Vid from './assets/vid.mov';
 import Vidwebm from './assets/vid.webm';
+import ReactVideoComponent from 'react-video-component';
 import Chill from './assets/chill.png';
 import ReactPlayer from 'react-player';
 import './styles/style.css'
@@ -37,8 +38,10 @@ class Header extends Component{
     return (
       <header class="v-header container">
           <div class ="fullscreen-video-wrap">
-
-            <video src={Vid} src={Vidwebm} class="video_player" autoplay="true" play="true" loop="true" muted="true" id="vid" />
+              <video autoplay="true" play="true" loop="true" muted="true">
+                <source src={Vid} type="video/mp4"/>
+                <source src={Vidwebm} type="video/webm"/>
+              </video>
           </div>
           <div class="header-overlay"></div>
           <div class="header-content">
