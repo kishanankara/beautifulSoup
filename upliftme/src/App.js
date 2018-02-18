@@ -36,7 +36,7 @@ class Header extends Component{
     return (
       <header class="v-header container">
           <div class ="fullscreen-video-wrap">
-            <video src={Vid} class="video_player" autoplay="true" loop="true"/>
+            <video src={Vid} class="video_player" autoplay="true" play="true" loop="true" muted="true" id="vid" />
           </div>
           <div class="header-overlay"></div>
           <div class="header-content">
@@ -49,6 +49,8 @@ class Header extends Component{
     );
   }
 }
+
+
 
 class Description extends Component{
   render(){
@@ -66,10 +68,11 @@ class App extends Component {
       <div>
       <under_dev/>
       <Header/>
-
+      <Description/>
       </div>
     );
   }
 }
+
 
 export default App;
