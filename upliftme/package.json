@@ -7,6 +7,7 @@
     "react": "^16.2.0",
     "react-background-video-player": "^1.0.1",
     "react-dom": "^16.2.0",
+    "react-hover-image": "^1.0.0",
     "react-player": "^1.1.2",
     "react-scripts": "1.1.1",
     "react-video-component": "^1.4.3"
