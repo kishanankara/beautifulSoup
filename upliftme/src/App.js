@@ -2,7 +2,9 @@ import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import Happy from './assets/happy.png';
 import Angry from './assets/angry.png';
-import HoverImage from "react-hover-image";
+import Logo from './assets/logo.png';
+import User from './assets/user.png';
+//import HoverImage from "react-hover-image";
 import Sad from './assets/sad.png';
 import Vid from './assets/vid.mov';
 import Vidwebm from './assets/vid.webm';
@@ -26,14 +28,36 @@ class Moods extends Component{
   render(){
     return(
       <div class ="moods">
-          <img src={Happy}  class ="happy" width="100" height="100" hspace="70" onClick={() => window.location = 'http://localhost:8888/callback'} />
-          <img src={Angry} class ="angry" width="100" height="100" hspace="70"  onClick={() => window.location = 'http://localhost:8888/callback'}/>
-          <img src={Sad} class ="sad" width="100" height="100" hspace="70" onClick={() => window.location = 'http://localhost:8888/callback'}/>
-          <img src={Chill} class ="chill" width="100" height="100" hspace="70" onClick={() => window.location = 'http://localhost:8888/callback'}/>
+          <img src={Happy}  class ="happy" width="90" height="90" hspace="75" onClick={() => window.location = 'http://localhost:8888/callback'} />
+          <img src={Angry} class ="angry" width="90" height="90" hspace="75"  onClick={() => window.location = 'http://localhost:8888/callback'}/>
+          <img src={Sad} class ="sad" width="90" height="90" hspace="75" onClick={() => window.location = 'http://localhost:8888/callback'}/>
+          <img src={Chill} class ="chill" width="90" height="90" hspace="75" onClick={() => window.location = 'http://localhost:8888/callback'}/>
       </div>
     );
   }
 }
+
+class LogoIcon extends Component{
+  render(){
+    return(
+      <div class ="logoIcon">
+          <img src={Logo}  class ="logo" width="130" height="50" hspace="20"/>
+          </div>
+    );
+  }
+}
+
+class UserIcon extends Component{
+  render(){
+    return(
+      <div class ="userIcon">
+          <img src={User}  class ="user" width="45" height="45" hspace="20"/>
+          </div>
+    );
+  }
+}
+
+
 
 class Header extends Component{
   render() {
@@ -47,8 +71,16 @@ class Header extends Component{
           </div>
           <div class="header-overlay"></div>
           <div class="header-content">
+            <header class = "logo-header">
+              <div id = 'log-to-left'>
+                <LogoIcon/>
+              </div>
+              <div id = 'user-to-right'>
+                <UserIcon/>
+              </div>
+            </header>
             <h1>moodMatch</h1>
-            <p>How are you feeling today? </p>
+            <p>Choose a mood and we will create a playlist that matches your mood. </p>
             <div class="spacer"></div>
             <Moods/>
           </div>
@@ -78,7 +110,7 @@ class App extends Component {
     return (
       <div>
       <Header/>
-      <Description/>
+
       </div>
     );
   }
