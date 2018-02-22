@@ -127,8 +127,8 @@ img{
   position: absolute;
   padding: 5px;
   top: 10px;
-  left: 20px;
-  right: 20px;
+  left: 10px;
+  right: 10px;
   z-index: 30;
 }
 
@@ -144,4 +144,45 @@ img{
   display: block;
   margin-top: -3.3%;
 
+}
+
+
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #f9f9f9;
+    min-width: 150px;
+    z-index: 1;
+}
+
+
+.dropdown-content a {
+    font-family: "DejaVu Sans Mono", monospace;
+    font-size: 12px;
+    font-stretch: ultra-condensed;
+    font-weight: 600;
+    color: black;
+    padding: 8px 12px;
+    text-decoration: none;
+    display: block;
+}
+
+
+.dropdown-content a:hover {background-color: #e6e6e6}
+
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
 }

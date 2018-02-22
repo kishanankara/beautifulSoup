@@ -13,6 +13,7 @@ import Chill from './assets/chill.png';
 import ReactPlayer from 'react-player';
 import './styles/style.css'
 import Descimg from './assets/Running_2.jpg';
+// import * as script_DropDown from './assets/script_DropDown.js';
 
 class under_dev extends Component{
   render(){
@@ -23,6 +24,7 @@ class under_dev extends Component{
     );
   }
 }
+
 
 class Moods extends Component{
   render(){
@@ -36,6 +38,20 @@ class Moods extends Component{
     );
   }
 }
+
+// class dropdown extends Component{
+//   render(){
+//     return(
+//       <div>
+//         <button onclick ="myFunction" class = "dropbtn">Dropdown</button>
+//           <div id="myDropdown" class ="dropdown-content">
+//             <a href = '#'> Link 1</a>
+//             <a href = '#'> Link 2</a>
+//           </div>
+//       </div>
+//     );
+//   }
+// }
 
 class LogoIcon extends Component{
   render(){
@@ -57,7 +73,21 @@ class UserIcon extends Component{
   }
 }
 
-
+class Drop extends Component{
+  render(){
+    return(
+      <div id = 'user-to-right'>
+        <div class="dropdown">
+            <UserIcon/>
+            <div class="dropdown-content">
+              <a href="#">Sign In</a>
+              <a href="#">Create an Account</a>
+            </div>
+        </div>
+      </div>
+    );
+  }
+}
 
 class Header extends Component{
   render() {
@@ -71,14 +101,7 @@ class Header extends Component{
           </div>
           <div class="header-overlay"></div>
           <div class="header-content">
-            <header class = "logo-header">
-              <div id = 'log-to-left'>
-                <LogoIcon/>
-              </div>
-              <div id = 'user-to-right'>
-                <UserIcon/>
-              </div>
-            </header>
+
             <h1>moodMatch</h1>
             <p>Choose a mood and we will create a playlist that matches your mood. </p>
             <div class="spacer"></div>
@@ -89,28 +112,38 @@ class Header extends Component{
   }
 }
 
-class Description extends Component{
-  render(){
-    return (
-      <header class="desc-header container">
-          <div class ="fullscreen-picture-wrap">
-              <img src={Descimg}/>
-          </div>
-          <div class="headerimg-overlay"></div>
-          <div class="header-desc-content">
-            <p>Choose a mood and we will create a playlist that matches your mood. </p>
-          </div>
-          </header>
-    );
-  }
-}
+// class Description extends Component{
+//   render(){
+//     return (
+//       <header class="desc-header container">
+//           <div class ="fullscreen-picture-wrap">
+//               <img src={Descimg}/>
+//           </div>
+//           <div class="headerimg-overlay"></div>
+//           <div class="header-desc-content">
+//             <p>Choose a mood and we will create a playlist that matches your mood. </p>
+//           </div>
+//           </header>
+//     );
+//   }
+// }
+
+// <div id = 'user-to-right'>
+// <UserIcon/>
+// </div>
+
 
 class App extends Component {
   render() {
     return (
       <div>
       <Header/>
-
+      <header class = "logo-header">
+        <div id = 'log-to-left'>
+          <LogoIcon/>
+        </div>
+          <Drop/>
+      </header>
       </div>
     );
   }
