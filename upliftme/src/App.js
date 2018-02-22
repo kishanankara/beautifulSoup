@@ -39,19 +39,6 @@ class Moods extends Component{
   }
 }
 
-// class dropdown extends Component{
-//   render(){
-//     return(
-//       <div>
-//         <button onclick ="myFunction" class = "dropbtn">Dropdown</button>
-//           <div id="myDropdown" class ="dropdown-content">
-//             <a href = '#'> Link 1</a>
-//             <a href = '#'> Link 2</a>
-//           </div>
-//       </div>
-//     );
-//   }
-// }
 
 class LogoIcon extends Component{
   render(){
@@ -59,6 +46,16 @@ class LogoIcon extends Component{
       <div class ="logoIcon">
           <img src={Logo}  class ="logo" width="130" height="50" hspace="20"/>
           </div>
+    );
+  }
+}
+
+class ReloadItSelf extends Component{
+  render(){
+    return(
+      <div id = 'log-to-left'>
+        <a href="#"><LogoIcon/></a>
+      </div>
     );
   }
 }
@@ -112,26 +109,6 @@ class Header extends Component{
   }
 }
 
-// class Description extends Component{
-//   render(){
-//     return (
-//       <header class="desc-header container">
-//           <div class ="fullscreen-picture-wrap">
-//               <img src={Descimg}/>
-//           </div>
-//           <div class="headerimg-overlay"></div>
-//           <div class="header-desc-content">
-//             <p>Choose a mood and we will create a playlist that matches your mood. </p>
-//           </div>
-//           </header>
-//     );
-//   }
-// }
-
-// <div id = 'user-to-right'>
-// <UserIcon/>
-// </div>
-
 
 class App extends Component {
   render() {
@@ -139,10 +116,8 @@ class App extends Component {
       <div>
       <Header/>
       <header class = "logo-header">
-        <div id = 'log-to-left'>
-          <LogoIcon/>
-        </div>
-          <Drop/>
+        <ReloadItSelf/>
+        <Drop/>
       </header>
       </div>
     );
