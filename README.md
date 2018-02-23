@@ -16,4 +16,22 @@ For example: User 1 selects (😢) and shares the song and the mood (😢) with 
 
 5. Provide a feedback mechanism to the user to communicate whether a song or playlist is having the desired effect.
 
+### Prototype (2/23/18)
+- Watch our prototype video: https://youtu.be/IEqeHqXzRTM
+- To run our current code for the first time, use the following steps:
+
+1. Create a local clone of this repository
+
+2. Using your command line interface, navigate to your local repository and switch branches using the command 'git checkout welcome_page'
+
+3. Run the command 'npm install'
+
+4. Run the command 'npm start'
+
+5. Open your web browser (preferably Chrome) and enter 'localhost:3000' into the address bar. You should now be viewing the welcome page of our web application!
+
+- For subsequent runs of this code, simply repeat steps 2, 4, and 5.
+
+
+
 [![Join the chat at https://gitter.im/beautiful_Soup/Lobby](https://badges.gitter.im/beautiful_Soup/Lobby.svg)](https://gitter.im/beautiful_Soup/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
