@@ -22,7 +22,7 @@ For example: User 1 selects (😢) and shares the song and the mood (😢) with 
 
 1. Create a local clone of this repository
 
-2. Using your command line interface, navigate to your local repository and switch branches using the command 'git checkout welcome_page'
+2. Using your command line interface, navigate to your local repository and the directory 'upliftme' and switch branches using the command 'git checkout develop'
 
 3. Run the command 'npm install'
 
