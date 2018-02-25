@@ -22,11 +22,27 @@ For example: User 1 selects (😢) and shares the song and the mood (😢) with 
 
 1. Create a local clone of this repository
 
-2. Using your command line interface, navigate to your local repository and the directory 'upliftme' and switch branches using the command 'git checkout develop'
+```
+git clone https://github.com/kishanankara/beautifulSoup.git
 
-3. Run the command 'npm install'
+```
 
-4. Run the command 'npm start'
+2. Using your command line interface, navigate to your local repository and the directory 'upliftme' and switch branches using the command 
+
+```
+git checkout develop
+```
+
+3. Run the command to install dependencies
+
+```
+npm install
+```
+
+4. Run the command to start front end
+```
+npm start
+```
 
 5. Open your web browser (preferably Chrome) and enter 'localhost:3000' into the address bar. You should now be viewing the welcome page of our web application!
 
