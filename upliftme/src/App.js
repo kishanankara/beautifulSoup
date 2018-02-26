@@ -16,6 +16,7 @@ import './styles/style.css';
 import Descimg from './assets/Running_2.jpg';
 
 
+
 class under_dev extends Component{
   render(){
     return (
@@ -65,7 +66,7 @@ class LogoIcon extends Component{
   render(){
     return(
       <div class ="logoIcon">
-          <img src={Logo}  class ="logo" width="130" height="50" hspace="20" onClick={() => window.location='http://localhost:3000/'}/>
+          <img src={Logo}  class ="logo" width="130" height="55" onClick={() => window.location='http://localhost:3000/'}/>
           </div>
     );
   }
