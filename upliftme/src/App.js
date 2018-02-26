@@ -62,6 +62,20 @@ class Moods extends Component{
   }
 }
 
+class searchBox extends component{
+  render(){
+    return{
+      <div>
+      <img/>
+      <input type="text" />
+      searchBox
+
+      </div>
+
+    };
+  }
+
+}
 
 class LogoIcon extends Component{
   render(){
@@ -99,6 +113,7 @@ class Drop extends Component{
       <div id = 'user-to-right'>
         <div class="dropdown">
             <UserIcon/>
+            <searchBox/>
             <div class="dropdown-content">
               <a href="#">Sign In</a>
               <a href="#">Create an Account</a>
@@ -164,7 +179,7 @@ class App extends Component {
                 <p> {this.state.playlist.song1} </p>
                 <p2> {this.state.playlist.song2} </p2>
                 </div>
-              }
+            }
       </div>
     );
   }
