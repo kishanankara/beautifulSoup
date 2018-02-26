@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import Happy from './assets/happy.png';
 import Angry from './assets/angry.png';
 import Logo from './assets/logo.png';
-import User from './assets/user.png';
+import Spotify from './assets/spotify.png';
 //import HoverImage from "react-hover-image";
 import Sad from './assets/sad.png';
 import queryString from 'query-string';
@@ -14,7 +14,6 @@ import Chill from './assets/chill.png';
 import ReactPlayer from 'react-player';
 import './styles/style.css';
 import Descimg from './assets/Running_2.jpg';
-// import * as script_DropDown from './assets/script_DropDown.js';
 
 
 class under_dev extends Component{
@@ -62,21 +61,6 @@ class Moods extends Component{
   }
 }
 
-class searchBox extends component{
-  render(){
-    return{
-      <div>
-      <img/>
-      <input type="text" />
-      searchBox
-
-      </div>
-
-    };
-  }
-
-}
-
 class LogoIcon extends Component{
   render(){
     return(
@@ -91,34 +75,24 @@ class ReloadItSelf extends Component{
   render(){
     return(
       <div id = 'log-to-left'>
-        <a href="#"><LogoIcon/></a>
+        <LogoIcon/>
       </div>
     );
   }
 }
 
-class UserIcon extends Component{
+class SpotifyIcon extends Component{
   render(){
     return(
-      <div class ="userIcon">
-          <img src={User}  class ="user" width="45" height="45" hspace="20"/>
+      <div id = 'spotify-to-right'>
+        <a class ="signin-btn" href = "#">
+          <i class = "icon-spotify">
+            <img src={Spotify} class = "logo" width="35" height="35"/>
+          </i>
+          <div id = 'descript'>
+          Connect with Spotify
           </div>
-    );
-  }
-}
-
-class Drop extends Component{
-  render(){
-    return(
-      <div id = 'user-to-right'>
-        <div class="dropdown">
-            <UserIcon/>
-            <searchBox/>
-            <div class="dropdown-content">
-              <a href="#">Sign In</a>
-              <a href="#">Create an Account</a>
-            </div>
-        </div>
+        </a>
       </div>
     );
   }
@@ -166,14 +140,14 @@ class App extends Component {
       <div>
       <header class = "logo-header">
         <ReloadItSelf/>
-        <Drop/>
+        <SpotifyIcon/>
       </header>
       <Header/>
       </div>:
                   <div style={{'text-align': 'center','font-size': '50px', 'margin-top': '20px'}}>
                   <header class = "logo-header">
                     <ReloadItSelf/>
-                    <Drop/>
+                    <SpotifyIcon/>
                   </header>
                 <h1>{this.state.user_name}'s Playlist</h1>
                 <p> {this.state.playlist.song1} </p>
