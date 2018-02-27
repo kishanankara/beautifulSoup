@@ -86,14 +86,14 @@ class SpotifyIcon extends Component{
   render(){
     return(
       <div id = 'spotify-to-right'>
-        <a class ="signin-btn" href = "#">
-          <i class = "icon-spotify">
+        <div class ="signin-btn" onClick={() => queryString.parse(window.location.search).access_token? window.location = 'http://localhost:3000/callback': window.location='http://localhost:8888/login'}>
+          <div class = "icon-spotify">
             <img src={Spotify} class = "logo" width="35" height="35"/>
-          </i>
+          </div>
           <div id = 'descript'>
           Connect with Spotify
           </div>
-        </a>
+        </div>
       </div>
     );
   }

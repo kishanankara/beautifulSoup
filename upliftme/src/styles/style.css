@@ -145,16 +145,6 @@ img{
   margin-top: -3.3%;
 }
 
-.icon-spotify{
-
-  left: 15px;
-  top: 8px;
-  position: absolute;
-  box-sizing: border-box;
-  color: #fff;
-
-}
-
 .signin-btn{
 
   top: -10px;
@@ -170,6 +160,20 @@ img{
   border-radius: 3.5px;
   letter-spacing: .6.1px;
   text-decoration: none;
+}
+
+.signin-btn:hover{
+  cursor: pointer;
+}
+
+.icon-spotify{
+
+  left: 15px;
+  top: 8px;
+  position: absolute;
+  box-sizing: border-box;
+  color: #fff;
+
 }
 
 #descript{
