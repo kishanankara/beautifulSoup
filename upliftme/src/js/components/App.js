@@ -33,10 +33,14 @@ class ReloadItSelf extends Component{
 }
 
 class SpotifyIcon extends Component{
+  constructor(props){
+    super(props);
+  }
+
   render(){
     return(
-      <div id = 'spotify-to-right'>
-        <div class ="signin-btn" onClick={() => queryString.parse(window.location.search).access_token? window.location = 'http://localhost:3000/callback': window.location='http://localhost:8888/login'}>
+      <div id = 'info-to-right'>
+        <div class ="signin-btn" onClick={() => queryString.parse(window.location.search).access_token? window.location = window.location.href: window.location='http://localhost:8888/login'}>
           <div class = "icon-spotify">
             <img src={Spotify} class = "logo" width="35" height="35"/>
           </div>
@@ -55,7 +59,9 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state={
-          user_name:'Mr/Mrs. X',
+          user:{
+                name: ''
+                },
           playlist:{
                     song1: 'Hello,Adele',
                     song2: 'In the End, Linkin Park'
@@ -63,24 +69,44 @@ class App extends Component {
 
     }
   }
+  componentDidMount(){
+    let parsd = queryString.parse(window.location.search);
+    let accessToken = parsd.access_token;
+
+    if (!accessToken)
+      return;
+      fetch('https://api.spotify.com/v1/tracks/79tO3XgDSh9JdyVWJ4ZZBO',{
+        headers: {'Authorization': 'Bearer ' + accessToken}
+      }).then(response => response.json()).then(data => this.setState({
+        trackuri: data.preview_url
+      }))
+  }
+  //this.setState({
+    // trackuri: data.tracks.href
+  // })
+
   render() {
+    const user_name = this.state.user.name;
+    const accessToken=this.state.accessToken;
+    let result=null;
+
     return (
       <div className="App">
       {window.location.href != 'http://localhost:3000/callback'?
       <div>
-      <header class = "logo-header">
-        <ReloadItSelf/>
-        <SpotifyIcon/>
-      </header>
-      <Header/>
-      </div>:
-                  <div style={{'text-align': 'center','font-size': '50px', 'margin-top': '20px'}}>
+        <header class ="logo-header">
+          <ReloadItSelf/>
+          <SpotifyIcon/>
+        </header>
+        <Header/>
+      </div>
+      :
+                 <div style={{'text-align': 'center','font-size': '50px', 'margin-top': '20px'}}>
                   <header class = "logo-header">
-                    <ReloadItSelf/>
-                    <SpotifyIcon/>
                   </header>
-                <h1>{this.state.user_name}'s Playlist</h1>
                 <p> {this.state.playlist.song1} </p>
+                <iframe src="https://open.spotify.com/embed?uri=spotify:track:79tO3XgDSh9JdyVWJ4ZZBO"
+                  frameborder="0" allow="encrypted-media" allowtransparency="true"></iframe>
                 <p2> {this.state.playlist.song2} </p2>
                 </div>
             }

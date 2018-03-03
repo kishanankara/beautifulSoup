@@ -13,8 +13,6 @@ import Chill from '../../assets/chill.png';
 import Sad from '../../assets/sad.png';
 import Descimg from '../../assets/Running_2.jpg';
 
-
-
 class Moods extends Component{
   constructor(props){
     super(props);
@@ -22,20 +20,15 @@ class Moods extends Component{
       data: {}
     }
   }
-  componentExecute(){
+  click(){
     let parsd = queryString.parse(window.location.search);
     let accessToken = parsd.access_token;
 
     if (!accessToken)
       return;
-    fetch('https://api.spotify.com/v1/me',{
-      headers: {'Authorization': 'Bearer ' + accessToken}
-    }).then(response => response.json()).then(data => this.setState({
-      user:
-      {
-        name: data.display_name
-      }
-    }))
+      fetch('https://api.spotify.com/v1/search?q=sad&type=playlist',{
+        headers: {'Authorization': 'Bearer ' + accessToken}
+      }).then(response => response.json()).then(data => console.log(data))
   }
   render(){
     return(
