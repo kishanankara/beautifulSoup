@@ -21,20 +21,10 @@ class Moods extends Component{
       data: {}
     }
   }
-  componentDidMount(){
-    let parsd = queryString.parse(window.location.search);
-    let accessToken = parsd.access_token;
-
-    if (!accessToken)
-      return;
-      fetch('https://api.spotify.com/v1/search?q=sad&type=playlist',{
-        headers: {'Authorization': 'Bearer ' + accessToken}
-      }).then(response => response.json()).then(data => console.log(data))
-  }
   render(){
     return(
       <div class ="moods">
-          <img src={Happy}  class ="happy" width="90" height="90" hspace="75" onClick={() => queryString.parse(window.location.search).access_token? window.location = 'http://localhost:3000/callback': window.location='http://localhost:8888/login'} />
+          <img src={Happy}  class ="happy" width="90" height="90" hspace="75" onClick={()=>window.location='http://localhost:8888/login'} />
           <img src={Angry} class ="angry" width="90" height="90" hspace="75"  onClick={() => queryString.parse(window.location.search).access_token? window.location = 'http://localhost:3000/callback': window.location='http://localhost:8888/login'}/>
           <img src={Sad} class ="sad" width="90" height="90" hspace="75" onClick={() => queryString.parse(window.location.search).access_token? window.location = 'http://localhost:3000/callback': window.location='http://localhost:8888/login'}/>
           <img src={Chill} class ="chill" width="90" height="90" hspace="75" onClick={() => queryString.parse(window.location.search).access_token? window.location = 'http://localhost:3000/callback': window.location='http://localhost:8888/login'}/>

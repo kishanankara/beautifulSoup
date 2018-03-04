@@ -17,6 +17,7 @@ import Descimg from '../../assets/Running_2.jpg';
 import Moods from './Moods.js';     //This line importst the Moods file from the same directory location.
 // import TrackPlayer from 'react-native-track-player';
 import '../../styles/style.css';
+import Playlists from './Playlists.js';
 import '../../styles/media.css'
 //import HoverImage from "react-hover-image";
 
@@ -58,43 +59,24 @@ class SpotifyIcon extends Component{
 // the component re renders and the change is in effect immediately.
 // state - React's way of defining what happens when a component changes its View
 // for example - a button when clicked might change its state from logged out to logged in.
+let user_data={
+  name : 'Example'
+};
 
 class App extends Component {
   constructor(props){
     super(props);
-    this.state={
-          user:{
-                name: ''
-                },
-          playlist:{
-                    song1: 'Hello,Adele',
-                    song2: 'In the End, Linkin Park'
-                  }
-
-    }
+    this.state={ user : user_data}
   }
   //This function renders the first time a component renders.
   // In the current function it calls an API and provides a specific track id that it needs.
 
-  componentDidMount(){
-    let parsd = queryString.parse(window.location.search);
-    let accessToken = parsd.access_token;
 
-    if (!accessToken)
-      return;
-      fetch('https://api.spotify.com/v1/tracks/79tO3XgDSh9JdyVWJ4ZZBO',{
-        headers: {'Authorization': 'Bearer ' + accessToken}
-      }).then(response => response.json()).then(data => console.log(data))
-  }
-
+//this.setState({data : data})
   render() {
-    const user_name = this.state.user.name;
-    const accessToken=this.state.accessToken;
-    let result=null;
-
     return (
       <div className="App">
-      {window.location.href != 'http://localhost:3000/callback'?  //Checking it the current window location has a callback endpoint
+      {window.location.href == 'http://localhost:3000/'?  //Checking it the current window location has a callback endpoint
       <div>
         <header class ="logo-header">
           <ReloadItSelf/>
@@ -106,10 +88,8 @@ class App extends Component {
                  <div style={{'text-align': 'center','font-size': '50px', 'margin-top': '20px'}}>
                   <header class = "logo-header">
                   </header>
-                <p> {this.state.playlist.song1} </p>
-
-                <p2> {this.state.playlist.song2} </p2>
-                </div>
+                  <Playlists/>
+              </div>
             }
       </div>
     );
