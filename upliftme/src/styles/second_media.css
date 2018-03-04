@@ -1,0 +1,116 @@
+
+
+@media all and (max-width: 800px){
+
+  .signin-btn{
+    top: -40px;
+  }
+
+  .header-content h1{
+    font-size: 6rem;
+
+  }
+
+  .header-content p{
+    font-size: 25px;
+
+  }
+  .happy {
+    width:55px;
+    height:55px;
+
+  }
+  .sad {
+    width:55px;
+    height:55px;
+
+  }
+  .chill {
+    width:55px;
+    height:55px;
+  }
+  .angry {
+    width:55px;
+    height:55px;
+  }
+
+
+
+}
+
+@media all and (max-width: 650px) {
+  .moods{
+    display: inline-flex;
+    margin-left: 35%;
+    margin-right: 65%;
+  }
+  .first_half{
+    margin-right: 70%;
+  }
+
+
+}
+
+@media all and (max-width: 600px){
+
+  .signin-btn{
+    top: -50px;
+
+  }
+
+  .header-content h1{
+
+    font-size: 5rem;
+  }
+
+  .header-content p{
+    font-size: 22px;
+  }
+
+  .moods{
+    margin-left: 30%;
+    margin-right: 65%;
+  }
+
+
+}
+
+@media all and (max-width: 500px){
+
+  .header-content h1{
+    font-size: 4rem;
+  }
+
+  .moods{
+
+    margin-left: 25%;
+    margin-right: 65%;
+  }
+
+}
+
+
+@media all and (max-width: 400px){
+
+  .logo{
+    position: absolute;
+    clip: rect(0px,54px, 60px, 0px);
+  }
+
+  .signin-btn{
+    top: 10px;
+  }
+
+  .header-content h1{
+    font-size: 3.5rem;
+  }
+  .header-content p{
+    font-size: 19px;
+  }
+
+  .moods{
+    margin-left: 20%;
+    margin-right: 65%;
+  }
+
+}

@@ -87,7 +87,7 @@ img{
   margin-top: 1vh;
   font-family: 'Gloria Hallelujah', cursive;
   text-align: center;
-  opacity: 0.6;
+  opacity: 0.7;
 }
 
 
@@ -96,6 +96,7 @@ img{
 }
 
 .header-content p{
+  width: 100%;
   font-size: 45px;
   text-align: center;
   font-family: 'Indie Flower', cursive;
@@ -103,8 +104,21 @@ img{
 
 }
 
+.happy {
+  margin:0 8%;
+}
+.sad {
+  margin:0 8%;
+}
+.chill {
+  margin:0 8%;
+}
+.angry {
+  margin:0 8%;
+}
+
 .moods{
-  display: inline-flex;
+  display: inline;
 }
 
 .logo-header{
@@ -168,7 +182,7 @@ img{
 
 }
 
-.back-ground{
+/* .back-ground{
   max-width: 100%;
   margin-left: auto;
   margin-right: auto;
@@ -181,7 +195,7 @@ img{
 }
 
 .song-container{
-  /* for right now */
+
   width: 100%;
   margin-left: auto;
   margin-right: auto;
@@ -193,4 +207,4 @@ img{
   font-size: 24px;
   margin: 20px;
   margin-bottom: 30px;
-}
+} */

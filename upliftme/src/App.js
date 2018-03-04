@@ -13,7 +13,8 @@ import Chill from './assets/chill.png';
 import Sad from './assets/sad.png';
 import Descimg from './assets/Running_2.jpg';
 import './styles/style.css';
-import './styles/media.css'
+import './styles/first_media.css';
+import './styles/second_media.css';
 //import HoverImage from "react-hover-image";
 
 
@@ -54,10 +55,14 @@ class Moods extends Component{
   render(){
     return(
       <div class ="moods">
-          <img src={Happy}  class ="happy" width="90" height="90" hspace="75" onClick={() => queryString.parse(window.location.search).access_token? window.location = 'http://localhost:3000/callback': window.location='http://localhost:8888/login'} />
-          <img src={Angry} class ="angry" width="90" height="90" hspace="75"  onClick={() => queryString.parse(window.location.search).access_token? window.location = 'http://localhost:3000/callback': window.location='http://localhost:8888/login'}/>
-          <img src={Sad} class ="sad" width="90" height="90" hspace="75" onClick={() => queryString.parse(window.location.search).access_token? window.location = 'http://localhost:3000/callback': window.location='http://localhost:8888/login'}/>
-          <img src={Chill} class ="chill" width="90" height="90" hspace="75" onClick={() => queryString.parse(window.location.search).access_token? window.location = 'http://localhost:3000/callback': window.location='http://localhost:8888/login'}/>
+          <span class = 'first_half'>
+          <img src={Happy}  class ="happy" width="85" height="85" onClick={() => queryString.parse(window.location.search).access_token? window.location = 'http://localhost:3000/callback': window.location='http://localhost:8888/login'} />
+          <img src={Angry} class ="angry" width="85" height="85" onClick={() => queryString.parse(window.location.search).access_token? window.location = 'http://localhost:3000/callback': window.location='http://localhost:8888/login'}/>
+          </span>
+          <span class = 'second_half'>
+          <img src={Sad} class ="sad" width="85" height="85" onClick={() => queryString.parse(window.location.search).access_token? window.location = 'http://localhost:3000/callback': window.location='http://localhost:8888/login'}/>
+          <img src={Chill} class ="chill" width="85" height="85" onClick={() => queryString.parse(window.location.search).access_token? window.location = 'http://localhost:3000/callback': window.location='http://localhost:8888/login'}/>
+          </span>
       </div>
     );
   }
@@ -123,25 +128,25 @@ class Header extends Component{
   }
 }
 
-class Latest extends Component{
-  render(){
-    return (
-      <div class = "back-ground">
-        <div class = "song-container">
-        <h3>Latest song or Favorite song</h3>
-        </div>
-      </div>
-    );
-  }
-}
-
-class exampleForNow extends Component{
-  render(){
-    return(
-     <p>here</p>
-    );
-  }
-}
+// class Latest extends Component{
+//   render(){
+//     return (
+//       <div class = "back-ground">
+//         <div class = "song-container">
+//         <h3>Latest song or Favorite song</h3>
+//         </div>
+//       </div>
+//     );
+//   }
+// }
+//
+// class exampleForNow extends Component{
+//   render(){
+//     return(
+//      <p>here</p>
+//     );
+//   }
+// }
 
 
 class App extends Component {
@@ -165,7 +170,7 @@ class App extends Component {
         <SpotifyIcon/>
       </header>
       <Header/>
-      <Latest/>
+      /*Latest*/
       </div>:
                   <div style={{'text-align': 'center','font-size': '50px', 'margin-top': '20px'}}>
                   <header class = "logo-header">
