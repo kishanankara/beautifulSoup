@@ -13,6 +13,7 @@ import Chill from '../../assets/chill.png';
 import Sad from '../../assets/sad.png';
 import Descimg from '../../assets/Running_2.jpg';
 
+
 class Moods extends Component{
   constructor(props){
     super(props);
@@ -20,7 +21,7 @@ class Moods extends Component{
       data: {}
     }
   }
-  click(){
+  componentDidMount(){
     let parsd = queryString.parse(window.location.search);
     let accessToken = parsd.access_token;
 
