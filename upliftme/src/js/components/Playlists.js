@@ -5,7 +5,7 @@ import queryString from 'query-string';
 class Playlists extends Component{
   constructor(){
     super();
-    this.state= {name: 'Bill'}
+    this.state= {name: 'Bill'} //WHAT DOES THIS DO? WHY BILL?
   }
   componentDidMount(){
     let parsd = queryString.parse(window.location.search);
@@ -13,15 +13,16 @@ class Playlists extends Component{
 
     if (!accessToken)
       return;
-      setTimeout(() =>fetch('https://api.spotify.com/v1/search?q=Sad&type=playlist',{
-        headers: {'Authorization': 'Bearer ' + accessToken}
-      }).then(response => response.json()).then(data => this.setState({
-        data:data
+      setTimeout(() =>fetch('https://api.spotify.com/v1/search?q=Sad&type=playlist',{ //runs search query for term Sad and type Playlist
+        headers: {'Authorization': 'Bearer ' + accessToken} 
+      }).then(response => response.json()).then(data => this.setState({ //.then called on promise (response=>response.json()) which returns another promise which is the data we want
+        data:data //We update server data with this data.
       }) ),5000);
   }
 
   render(){
 
+    /*WHAT DOES THIS DO?*/
     return(
       <div>
           {this.state.data?
