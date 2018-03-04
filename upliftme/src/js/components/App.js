@@ -22,7 +22,9 @@ import '../../styles/media.css'
 //import HoverImage from "react-hover-image";
 
 
-
+/*
+WHAT DOES THIS DO?
+*/
 class ReloadItSelf extends Component{
   render(){
     return(
@@ -33,6 +35,12 @@ class ReloadItSelf extends Component{
   }
 }
 
+//
+/*
+Creates a SpotifyIcon component which is placed in the top right corner of the page, displays the spotify.png image, and
+says "Connect with Spotify". Functions as a button that when clicked, checks to see if user has an access token.
+If access token, links to localhost:3000 (main page). If none, links to login page for Spotify on backend (localhost:8888/login)
+*/
 class SpotifyIcon extends Component{
   constructor(props){
     super(props);
@@ -54,30 +62,44 @@ class SpotifyIcon extends Component{
   }
 }
 
-// The App component renders first all other tags that are used in it are imported
-// The cinstructor initializes the state of the component. Whenever the state changes
-// the component re renders and the change is in effect immediately.
-// state - React's way of defining what happens when a component changes its View
-// for example - a button when clicked might change its state from logged out to logged in.
+
+/*
+WHAT DOES THIS DO?
+*/
 let user_data={
   name : 'Example'
 };
 
+
+/*
+App is a component that represents the entire application.
+The job of this component is to render all of the other components that make up the app (along with their built-in functionalities)
+App is comprised of two sections: the constructor and the render() function.
+
+Note: The cinstructor initializes the state of the component. Whenever the state changes the component re renders and the change is in 
+effect immediately.state - React's way of defining what happens when a component changes its view, 
+for example - a button when clicked might change its state from logged out to logged in.
+*/
 class App extends Component {
+  
+  //The first section of the App component - responsible for constructing the App component itself. Uses the constructor of Component to do so.
   constructor(props){
     super(props);
-    this.state={ user : user_data}
+    this.state={ user : user_data} //WHAT DOES THIS DO?
   }
-  //This function renders the first time a component renders.
-  // In the current function it calls an API and provides a specific track id that it needs.
-
 
 //this.setState({data : data})
+
+
+  /* The second section of the App component - RESPONSIBLE FOR?
+  Renders the first the a component (in this case App) renders.
+  Calls an API and provides a specific track id that the application needs. (Where does this happen?)
+  */
   render() {
     return (
-      <div className="App">
+      <div className="App"> //IS THIS THE NAME OF THE COMPONENT? HOW IS THIS DIFFERENT THAN THE NAME SPECIFIED IN THE LINE "class App extends..."?
       {window.location.href == 'http://localhost:3000/'?  //Checking it the current window location has a callback endpoint
-      <div>
+      <div> //If callback endpoint is localhost:3000:
         <header class ="logo-header">
           <ReloadItSelf/>
           <SpotifyIcon/>
@@ -85,6 +107,7 @@ class App extends Component {
         <Header/>
       </div>
       :     //Things before the colon is when the condition hold true else it is false and it goes to the else clause.
+                //WHAT DOES THIS DO?
                  <div style={{'text-align': 'center','font-size': '50px', 'margin-top': '20px'}}>
                   <header class = "logo-header">
                   </header>
