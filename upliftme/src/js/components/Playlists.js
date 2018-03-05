@@ -25,7 +25,7 @@ class Playlists extends Component{
     return(
       <div>
           {this.state.data?
-              <div><p>The data is here : <br/></p><div> {this.state.data.playlists.items.map(m => <img src={m.images[0].url}/>)}</div></div>:
+              <div><p>The data is here : <br/></p><div> {this.state.data.playlists.items.map(m => <img src={m.images[0].url} height="400px" padding="10px"/>)}</div></div>:
             <p1>Loading ... </p1>}
 
       </div>
