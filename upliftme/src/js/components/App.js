@@ -88,7 +88,7 @@ class App extends Component {
                  <div style={{'text-align': 'center','font-size': '50px', 'margin-top': '20px'}}>
                   <header class = "logo-header">
                   </header>
-                  <Playlists/>
+                  <Playlists key={window.location.href}/>
               </div>
             }
       </div>
