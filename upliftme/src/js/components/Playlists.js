@@ -17,6 +17,7 @@ class Playlists extends Component{
     if (!accessToken){
       console.log("Uh oh, no access token found at mounting");
       return;
+
     }
 
       fetch('https://api.spotify.com/v1/search?q=Sad&type=playlist',{
@@ -26,6 +27,7 @@ class Playlists extends Component{
       .then(data => this.setState( {data:data}, function(){this.afterMount(this.state.data);} ) );
 
   }
+
 
 
   //Called only after setState completes in componentDidMount. Looks for a list of tracks in data and, if found, saves to state
@@ -133,7 +135,6 @@ class Playlists extends Component{
               :<p>Sorry, no tracks found at render</p>}
           </div>
               :<p>Sorry, no data found at render </p>
-
             }
       </div>
     );
