@@ -23,7 +23,6 @@ class Header extends Component{
           <div class="header-content">
 
             <h1>moodMatch</h1>
-            <SearchBar/>
             
             <p>Choose a mood and we will create a playlist that matches your mood. </p>
             <div class="spacer"></div>
