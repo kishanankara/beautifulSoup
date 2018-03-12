@@ -32,7 +32,6 @@ https://github.com/kishanankara/beautifulSoup-backend
 
 ```
 git clone https://github.com/kishanankara/beautifulSoup.git
-
 ```
 
 2. Using your command line interface, navigate to your local repository and the directory 'upliftme' and switch branches using the command 
