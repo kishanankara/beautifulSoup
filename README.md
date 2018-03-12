@@ -16,20 +16,38 @@ For example: User 1 selects (😢) and shares the song and the mood (😢) with 
 
 5. Provide a feedback mechanism to the user to communicate whether a song or playlist is having the desired effect.
 
+### NOTE: Make sure you have NODE installed in your system.
+
+### NOTE: This is just the front end application for the project. To get user authenticatied you have to go to our backend repository and follow instructions to get the backend server running.
+
+HERE IS THE LINK TO BACKEND REPO:
+
+https://github.com/kishanankara/beautifulSoup-backend
+
 ### Prototype (2/23/18)
 - Watch our prototype video: https://youtu.be/IEqeHqXzRTM
 - To run our current code for the first time, use the following steps:
-- **MAKE SURE YOU HAVE NODE INSTALLED.**
+
 1. Create a local clone of this repository
 
-2. Using your command line interface, navigate to your local repository and the directory 'upliftme' and switch branches using the command 'git checkout develop'
+```
+git clone https://github.com/kishanankara/beautifulSoup.git
 
-3. Run the command 
+```
+
+2. Using your command line interface, navigate to your local repository and the directory 'upliftme' and switch branches using the command 
+
+```
+git checkout develop
+```
+
+3. Run the command to install dependencies
+
 ```
 npm install
 ```
 
-4. Run the command 
+4. Run the command to start front end
 ```
 npm start
 ```
