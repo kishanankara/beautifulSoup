@@ -17,7 +17,6 @@ class Playlists extends Component{
     if (!accessToken){
       console.log("Uh oh, no access token found at mounting");
       return;
-
     }
 
       fetch('https://api.spotify.com/v1/search?q=Sad&type=playlist',{
@@ -74,7 +73,7 @@ class Playlists extends Component{
   processTrack(trackItem){
        let image = trackItem.track.album.images[0].url; //Does this return error if none exist?
        let prev_url = trackItem.track.preview_url;
-       
+
 
        if(!prev_url){
           console.log("No preview url!");
@@ -119,7 +118,7 @@ class Playlists extends Component{
                     {console.log("We have tracks at render!")}
                     {console.log(this.state.tracks)}
                     <p>The data is here :<br/></p>
-                      <div>{this.state.tracks.map(m => 
+                      <div>{this.state.tracks.map(m =>
                         <div key={m.track.id}>
                           {
                             <div> <img src={m.track.album.images[0].url} height="400px" padding="10px"/>
@@ -135,6 +134,7 @@ class Playlists extends Component{
               :<p>Sorry, no tracks found at render</p>}
           </div>
               :<p>Sorry, no data found at render </p>
+
             }
       </div>
     );
