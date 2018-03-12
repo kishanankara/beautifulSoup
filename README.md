@@ -19,14 +19,20 @@ For example: User 1 selects (😢) and shares the song and the mood (😢) with 
 ### Prototype (2/23/18)
 - Watch our prototype video: https://youtu.be/IEqeHqXzRTM
 - To run our current code for the first time, use the following steps:
-
+- **MAKE SURE YOU HAVE NODE INSTALLED.**
 1. Create a local clone of this repository
 
 2. Using your command line interface, navigate to your local repository and the directory 'upliftme' and switch branches using the command 'git checkout develop'
 
-3. Run the command 'npm install'
+3. Run the command 
+```
+npm install
+```
 
-4. Run the command 'npm start'
+4. Run the command 
+```
+npm start
+```
 
 5. Open your web browser (preferably Chrome) and enter 'localhost:3000' into the address bar. You should now be viewing the welcome page of our web application!
 
