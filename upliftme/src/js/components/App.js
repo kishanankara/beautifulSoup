@@ -71,6 +71,12 @@ class App extends Component {
   //This function renders the first time a component renders.
   // In the current function it calls an API and provides a specific track id that it needs.
 
+ mountNow()
+ {
+  var query = window.location.href.split('?')[0];
+  query= query.substr(query.lastIndexOf('/')+1);
+  return query;
+ }
 
 //this.setState({data : data})
   render() {
@@ -88,7 +94,7 @@ class App extends Component {
                  <div style={{'text-align': 'center','font-size': '50px', 'margin-top': '20px'}}>
                   <header class = "logo-header">
                   </header>
-                  <Playlists key={window.location.href}/>
+                  <Playlists key={window.location.href} query={this.mountNow()}/>
               </div>
             }
       </div>

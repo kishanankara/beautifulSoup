@@ -18,8 +18,10 @@ class Playlists extends Component{
       console.log("Uh oh, no access token found at mounting");
       return;
     }
-
-      fetch('https://api.spotify.com/v1/search?q=Sad&type=playlist',{
+      var query = this.props.query;
+      console.log(query);
+      var uri = 'https://api.spotify.com/v1/search?q=' + query + '&type=playlist';
+      fetch(uri,{
         headers: {'Authorization': 'Bearer ' + accessToken}
       })
       .then(response => response.json())
@@ -131,9 +133,9 @@ class Playlists extends Component{
                       )}
                       </div>
                   </div>
-              :<p>Sorry, no tracks found at render</p>}
+              :<p>Data is loading ... </p>}
           </div>
-              :<p>Sorry, no data found at render </p>
+              :<p>Data is loading...</p>
 
             }
       </div>
