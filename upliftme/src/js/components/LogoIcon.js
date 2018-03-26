@@ -15,6 +15,7 @@ import Descimg from '../../assets/Running_2.jpg';
 import Moods from './Moods.js';
 
 
+{/*Component for the Jazz Logo*/}
 
 class LogoIcon extends Component{
   render(){

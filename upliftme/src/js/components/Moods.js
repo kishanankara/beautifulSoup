@@ -13,7 +13,9 @@ import Chill from '../../assets/chill.png';
 import Sad from '../../assets/sad.png';
 import Descimg from '../../assets/Running_2.jpg';
 
-
+{/* This is the Moods component consists of four different moods to choose from upon a click
+    redirects the user to a backend server which processes the request to go on the playlist.
+  */}
 class Moods extends Component{
   constructor(props){
     super(props);
