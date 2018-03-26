@@ -3,24 +3,24 @@ import ReactDOM from 'react-dom';
 import queryString from 'query-string';
 import ReactPlayer from 'react-player';
 import ReactVideoComponent from 'react-video-component';
-import Vid from '../../assets/vid.mov'; {/* Chrome and safari use this format. */}
-import Vidwebm from '../../assets/vid.webm'; {/* Firefox supports videos that are in webm format. */}
+import Vid from '../../assets/vid.mov'; //{/* Chrome and safari use this format. */}
+import Vidwebm from '../../assets/vid.webm'; //{/* Firefox supports videos that are in webm format. */}
 import Logo from '../../assets/logo.png';
 import Spotify from '../../assets/spotify.png';
-import Happy from '../../assets/happy.png';    {/* In react components can have tags which are defined by other components this applies even for images and videos. */}
+import Happy from '../../assets/happy.png';   // {/* In react components can have tags which are defined by other components this applies even for images and videos. */}
 import Angry from '../../assets/angry.png';
 import LogoIcon from './LogoIcon.js';
-import Header from './Header.js';   {/* This line imports the Header component from the Header file. */}
+import Header from './Header.js';   //{/* This line imports the Header component from the Header file. */}
 import Chill from '../../assets/chill.png';
 import Sad from '../../assets/sad.png';
 import Descimg from '../../assets/Running_2.jpg';
-import Moods from './Moods.js';     {/*This line importst the Moods file from the same directory location.*/}
-{/* import TrackPlayer from 'react-native-track-player'; */}
+import Moods from './Moods.js';    // {/*This line importst the Moods file from the same directory location.*/}
+// {/* import TrackPlayer from 'react-native-track-player'; */}
 import '../../styles/style.css';
 import Playlists from './Playlists.js';
 import SpotifyIcon from './SpotifyIcon.js';
 import '../../styles/media.css'
-{/* import HoverImage from "react-hover-image"; */}
+// {/* import HoverImage from "react-hover-image"; */}
 
 
 
@@ -37,11 +37,11 @@ class ReloadItSelf extends Component{
 
 
 
-{/* The App component renders first all other tags that are used in it are imported
-The constructor initializes the state of the component. Whenever the state changes
- the component re renders and the change is in effect immediately.
-state - React's way of defining what happens when a component changes its View
- for example - a button when clicked might change its state from logged out to logged in.*/}
+// {/* The App component renders first all other tags that are used in it are imported
+// The constructor initializes the state of the component. Whenever the state changes
+//  the component re renders and the change is in effect immediately.
+// state - React's way of defining what happens when a component changes its View
+//  for example - a button when clicked might change its state from logged out to logged in.*/}
 let user_data={
   name : 'Example'
 };
@@ -53,7 +53,8 @@ class App extends Component {
   }
 
 
-  {/*mountNow: Checks for the query in the endpoint and only then renders the playlist part of it. */}
+  //*<!--/*mountNow: Checks for the query in the endpoint and only then renders the playlist part of it.
+
 
  mountNow()
  {
@@ -62,22 +63,25 @@ class App extends Component {
   return query;
  }
 
- {/* This component takes care of the functionality for the Connect with Spotify button on the homepage. */}
+ //{/* This component takes care of the functionality for the Connect with Spotify button on the homepage. */}
+ // {/*Checking it the current window location has a callback endpoint*/}
+ //{/*Things before the colon is when the condition hold true else it is false and it goes to the else clause. */}
   render() {
     return (
-      <div className="App">    {/*Things before the colon is when the condition hold true else it is false and it goes to the else clause. */}
-      {window.location.href == 'http://localhost:3000/'?  {/*Checking it the current window location has a callback endpoint*/}
+      <div className="App">
+      {window.location.href == 'http://localhost:3000/'?
+      <div>
         <header class ="logo-header">
           <ReloadItSelf/>
-          <SpotifyIcon/>
+          <SpotifyIcon data='Connect with Spotify'/>
         </header>
         <Header/>
       </div>
       :
-                 <div style={{'text-align': 'center','font-size': '50px', 'margin-top': '20px'}}>
+              <div style={{'text-align': 'center','font-size': '50px', 'margin-top': '20px'}}>
                   <header class = "logo-header">
                   </header>
-                  <Playlists key={window.location.href} query={this.mountNow()}/>
+                  <Playlists key={window.location.href} query={this.mountNow()} />
               </div>
             }
       </div>

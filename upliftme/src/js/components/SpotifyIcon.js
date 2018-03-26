@@ -2,7 +2,6 @@ import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import Spotify from '../../assets/spotify.png';
 import queryString from 'query-string';
-import Goback from '../../assets/goback.png';
 import { bake_cookie, read_cookie, delete_cookie } from 'sfcookies';
 
 
@@ -16,9 +15,9 @@ class SpotifyIcon extends Component{
     console.log(s);
     if ( s ==null)
     {
-      return 'http://upliftme-backend.herokuapp.com/login';
+      return 'http://localhost:8888/login';
     }
-    return 'http://upliftme.herokuapp.com';
+    return 'http://localhost:3000';
   }
   componentDidMount()
   {
@@ -27,16 +26,13 @@ class SpotifyIcon extends Component{
     console.log(null)
   }
 
-  {/* This component takes care of the functionality for the Connect with Spotify button on the homepage. */}
 
   render(){
     return(
       <div id = 'info-to-right'>
-        <div class ="signin-btn" onClick={()=> (this.props.func=='Login')?window.location.href='http://upliftme-backend.herokuapp.com/login':window.location.href = 'http://upliftme.herokuapp.com/'}>
+        <div class ="signin-btn" onClick={()=> (this.props.func=='Login')?window.location.href='http://localhost:8888/login':window.location.href = 'http://localhost:3000/'}>
           <div class = "icon-spotify">
-            {this.props.func=='Login'?
-            <div><img src={Spotify} class = "logo" width="35" height="35"/></div>
-            :<div><img src = {Goback} class = "logo" width="35" height="35"/></div>}
+            <img src={Spotify} class = "logo" width="35" height="35"/>
           </div>
           <div id = 'descript'>
           {this.props.data}
