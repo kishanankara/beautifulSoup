@@ -10,12 +10,22 @@ const playlist=[];
 
 class Playlists extends Component{
 
+  //{/* The second page of our Web App consists of a player which houses playable tracks and album art. Its name is Bill. */}
   constructor(){
     super();
     this.state= {name: 'Bill'}
   }
+
+
+  // This initially mounts our playlist component.
+    //1. Uses the query-string package to parse the URL containing the access token. 
+        //(Access token is generated after uses the "conenct to Spotify" button)
+    //2. Ensures the query provided to access the playlist page is valid
+    //3. Passes the query and access token to Spotify using Spotify API
+    //4. Sets the data property of Playlist component to the results returned by Spotify
+    //5. After state is set, calls afterMount to process the returned Spotify data
   componentDidMount(){
-    console.log("componentDidMount ran!");
+    //console.log("componentDidMount ran!");
     let parsd = queryString.parse(window.location.search);
     let accessToken = parsd.access_token;
 
@@ -40,12 +50,20 @@ class Playlists extends Component{
 
 
 
-  //Called only after setState completes in componentDidMount. Looks for a list of tracks in data and, if found, saves to state
+  //Finds any tracks in data of Playlist component and processes them into a list of tracks to be rendered.
+    //1. Checks for valid access token
+    //2. Looks for a list of tracks in data and, if found, saves to 'tracks' state of Playlist component
+    //3. After 'tracks' state is verified complete, call pruneTracksList on tracks to remove tracks which:
+      //lack album art
+      //lack an associated url that points to the Spotify song
+  //*Note: afterMount must be called only after setState completes in componentDidMount. 
   afterMount(trackList){
-    console.log("afterMount ran!");
-    console.log(trackList);
-    console.log(trackList.playlists);
-    console.log(trackList.playlists.items[0]);
+    /*Debug print statements*/
+      //console.log("afterMount ran!");
+      //console.log(trackList);
+      //console.log(trackList.playlists);
+      //console.log(trackList.playlists.items[0]);
+    
     let parsd = queryString.parse(window.location.search);
     let accessToken = parsd.access_token;
     if (!accessToken){
@@ -60,6 +78,7 @@ class Playlists extends Component{
       .then(tracks => this.setState( {tracks:this.pruneTracksList(tracks)} ) );
     console.log("afterMount finished");
   }
+
 
   //Input: tracks as fetched from API call for mood-specific playlist
   //Output: list of tracks processed to only include those with both album art and a preview_url
@@ -80,9 +99,9 @@ class Playlists extends Component{
 
   }
 
-  //Returns true if both album image and preview url exist (for a provided track)
+  //Returns true if both album image and preview url exist (for a provided track). We will not provide users tracks without both.
   processTrack(trackItem){
-       let image = trackItem.track.album.images[0].url; //Does this return error if none exist?
+       let image = trackItem.track.album.images[0].url;
        let prev_url = trackItem.track.preview_url;
 
 
@@ -108,11 +127,21 @@ class Playlists extends Component{
 
   }
 
+
+  //Should only check to make sure there are 10 songs in the playlist. If no, pull more in.
+  //Note: This will be coded in a future iteration after functionality is developed to allow the user to delete tracks.
+  componentDidUpdate(){
+
+  }
+
+
+
+  //Proof of concept for manipulating track and playlist object properties from Spotify API. Currently unused.
   populatePlaylist(){
      const tracks=this.state.tracks;
      if(tracks)
      {
-       console.log('We have data@ populate Playlist');
+       //console.log('We have data@ populate Playlist');
        for(var i=0;i<tracks.length;i++)
        {
          if(tracks[i].track.preview_url && tracks[i].track.album.images[0].url && tracks[i].track.name)
@@ -129,21 +158,19 @@ class Playlists extends Component{
                   artist: artist_arr
                  }
             playlist.push(JSON);
-
          }
-
        }
      }
-
-
   }
 
-  //Should only check to make sure there are 10 songs in the playlist. If no, pull more in.
-  componentDidUpdate(){
 
-  }
 
-  //Updated to remove accidental infinite loop on call to afterMount(). Added key-value pairs to map for effective render upon track removal
+
+
+  //Renders our Playlist component. Runs any time the state of the component changes.
+    //1. Sets visual properties of component
+    //2. Checks that data and tracks exists within the Playlist component. If not, renders a loading message.
+    //3. For each track in the playlist, render a MusicPlayer object with corresponding album art, track name, and artist 
   render(){
     const mystyle ={
       backgroundColor: '#6600ff',
@@ -175,19 +202,19 @@ class Playlists extends Component{
       justifyContent : 'flex-start'
 
     }
-                         //https://open.spotify.com/track/4sPmO7WMQUAf45kwMOtONw?si=aQkPn1JdSYq708hvAg9-bQ
-    console.log("render ran!");
-    console.log(this.state.data);
+
+    //console.log("render ran!");
+    //console.log(this.state.data);
     return(
       <div >
 
           {this.state.data ?
             <div>
-              {console.log("We have data at render!")}
+              {/*console.log("We have data at render!")*/}
                 {this.state.tracks?
                   <div>
-                    {console.log("We have tracks at render!")}
-                    {console.log(this.state.tracks)}
+                    {/*console.log("We have tracks at render!")*/}
+                    {/*console.log(this.state.tracks)*/}
                       <div>{this.state.tracks.map(m =>
                         <div key={m.track.id}>
                           { <div>
