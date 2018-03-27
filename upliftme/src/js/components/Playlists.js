@@ -4,7 +4,6 @@ import ReactPlayer from 'react-player';
 import queryString from 'query-string';
 import MusicPlayer from 'react-responsive-music-player';
 import SpotifyIcon from './SpotifyIcon.js';
-import goBack from './../../assets/goback.png'
 
 
 const playlist=[];
@@ -26,6 +25,10 @@ class Playlists extends Component{
     }
       var query = this.props.query;
       console.log(query);
+      if(query!='Chill' || query!='Pump' ||query!='Happy' ||query!='Sad' )
+      {
+        query = 'you suck';
+      }
       var uri = 'https://api.spotify.com/v1/search?q=' + query + '&type=playlist';
       fetch(uri,{
         headers: {'Authorization': 'Bearer ' + accessToken}
@@ -144,12 +147,13 @@ class Playlists extends Component{
   render(){
     const mystyle ={
       backgroundColor: '#6600ff',
-      fontSize: 10,
+      fontSize: 13,
       height: 250,
       width: 1500,
       fontColor: 'white',
+      flex:1,
       borderStyle : 'solid',
-      borderColoe: 'black'
+      borderColor: 'black'
     }
     const elementsize ={
       backgroundColor: '#6600ff',
@@ -162,7 +166,7 @@ class Playlists extends Component{
     }
     const componentsize ={
       backgroundColor: 'white',
-      height: 250,
+      height: 5000,
       width: 1400,
       flex:1,
       fontColor: 'white',
@@ -176,7 +180,7 @@ class Playlists extends Component{
     console.log(this.state.data);
     return(
       <div >
-         <SpotifyIcon data='Go Back' img ={goBack}/>
+
           {this.state.data ?
             <div>
               {console.log("We have data at render!")}

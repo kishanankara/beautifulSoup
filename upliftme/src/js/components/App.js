@@ -19,6 +19,7 @@ import Moods from './Moods.js';    // {/*This line importst the Moods file from 
 import '../../styles/style.css';
 import Playlists from './Playlists.js';
 import SpotifyIcon from './SpotifyIcon.js';
+import goBack from './../../assets/goback.png'
 
 import '../../styles/media.css'
 // {/* import HoverImage from "react-hover-image"; */}
@@ -71,6 +72,7 @@ class App extends Component {
     return (
       <div className="App">
       {window.location.href == 'http://localhost:3000/'?
+
       <div>
         <header class ="logo-header">
           <ReloadItSelf/>
@@ -79,11 +81,13 @@ class App extends Component {
         <Header/>
       </div>
       :
-              <div style={{'text-align': 'center','font-size': '50px', 'margin-top': '20px'}}>
+          <div style={{'background-color':'#6600ff'}}>
+              <div style={{'text-align': 'center','font-size': '50px'}}>
                   <header class = "logo-header">
                   </header>
                   <Playlists key={window.location.href} query={this.mountNow()} />
               </div>
+           </div>
             }
       </div>
     );
