@@ -16,6 +16,7 @@ For example: User 1 selects (😢) and shares the song and the mood (😢) with 
 
 5. Provide a feedback mechanism to the user to communicate whether a song or playlist is having the desired effect.
 
+
 ### NOTE: Make sure you have NODE installed in your system.
 
 ### NOTE: This is just the front end application for the project. To get user authenticatied you have to go to our backend repository and follow instructions to get the backend server running.
