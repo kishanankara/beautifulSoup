@@ -2,6 +2,12 @@ import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import ReactPlayer from 'react-player';
 import queryString from 'query-string';
+import MusicPlayer from 'react-responsive-music-player';
+import SpotifyIcon from './SpotifyIcon.js';
+import goBack from './../../assets/goback.png'
+
+
+const playlist=[];
 
 class Playlists extends Component{
 
@@ -99,7 +105,35 @@ class Playlists extends Component{
 
   }
 
+  populatePlaylist(){
+     const tracks=this.state.tracks;
+     if(tracks)
+     {
+       console.log('We have data@ populate Playlist');
+       for(var i=0;i<tracks.length;i++)
+       {
+         if(tracks[i].track.preview_url && tracks[i].track.album.images[0].url && tracks[i].track.name)
+         {
+            const artists = tracks[i].track.artists;
+            const artist_arr = [];
+            for(var j=0;j<artists.length;j++)
+            {
+              artist_arr.push(artists[i]);
+            }
+            const JSON = {url: tracks[i].track.preview_url,
+                  cover: tracks[i].track.album.images[0].url,
+                  title: tracks[i].track.name,
+                  artist: artist_arr
+                 }
+            playlist.push(JSON);
 
+         }
+
+       }
+     }
+
+
+  }
 
   //Should only check to make sure there are 10 songs in the playlist. If no, pull more in.
   componentDidUpdate(){
@@ -107,11 +141,42 @@ class Playlists extends Component{
   }
 
   //Updated to remove accidental infinite loop on call to afterMount(). Added key-value pairs to map for effective render upon track removal
-  render(){                                           //https://open.spotify.com/track/4sPmO7WMQUAf45kwMOtONw?si=aQkPn1JdSYq708hvAg9-bQ
+  render(){
+    const mystyle ={
+      backgroundColor: '#6600ff',
+      fontSize: 10,
+      height: 250,
+      width: 1500,
+      fontColor: 'white',
+      borderStyle : 'solid',
+      borderColoe: 'black'
+    }
+    const elementsize ={
+      backgroundColor: '#6600ff',
+      height: 250,
+      width: 1400,
+      fontColor: 'white',
+      alignItems: 'center',
+      justifyContent : 'flex-start'
+
+    }
+    const componentsize ={
+      backgroundColor: 'white',
+      height: 250,
+      width: 1400,
+      flex:1,
+      fontColor: 'white',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent : 'flex-start'
+
+    }
+                         //https://open.spotify.com/track/4sPmO7WMQUAf45kwMOtONw?si=aQkPn1JdSYq708hvAg9-bQ
     console.log("render ran!");
     console.log(this.state.data);
     return(
-      <div>
+      <div >
+         <SpotifyIcon data='Go Back' img ={goBack}/>
           {this.state.data ?
             <div>
               {console.log("We have data at render!")}
@@ -119,19 +184,22 @@ class Playlists extends Component{
                   <div>
                     {console.log("We have tracks at render!")}
                     {console.log(this.state.tracks)}
-                    <p>The data is here :<br/></p>
                       <div>{this.state.tracks.map(m =>
                         <div key={m.track.id}>
-                          {
-                            <div> <img src={m.track.album.images[0].url} height="400px" padding="10px"/>
-                                  <br/>
-                                  <audio controls>
-                                  <source src={m.track.preview_url} type="audio/mp3"/></audio>
+                          { <div>
+                            <div style = {elementsize}>
+                            <MusicPlayer playlist={[{url: m.track.preview_url,
+                                  cover: m.track.album.images[0].url,
+                                  title: m.track.name,
+                                  artist: [m.track.artists.map(n => n.name)]
+                                }]} progressColor = 'black' btnColor= 'red' style={mystyle}/>
+                            </div>
                             </div>
                           }
                         </div>
                       )}
-                      </div>
+
+                    </div>
                   </div>
               :<p>Data is loading ... </p>}
           </div>

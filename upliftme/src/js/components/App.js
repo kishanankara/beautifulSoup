@@ -19,6 +19,7 @@ import Moods from './Moods.js';    // {/*This line importst the Moods file from 
 import '../../styles/style.css';
 import Playlists from './Playlists.js';
 import SpotifyIcon from './SpotifyIcon.js';
+
 import '../../styles/media.css'
 // {/* import HoverImage from "react-hover-image"; */}
 
@@ -73,7 +74,7 @@ class App extends Component {
       <div>
         <header class ="logo-header">
           <ReloadItSelf/>
-          <SpotifyIcon data='Connect with Spotify'/>
+          <SpotifyIcon data='Connect with Spotify' img={Spotify}/>
         </header>
         <Header/>
       </div>
