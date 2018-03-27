@@ -1,0 +1,74 @@
+
+
+
+
+
+
+
+Jazz: As a core application the user chooses how they are feeling (a mood) as soon as they enter the website, 
+      and based on the mood selection a song playlist is generated. Using Spotifys API call the user will get 
+      songs base off the selected Mood. The Application is writen in Nodejs and React.
+
+
+
+Implementation and Discrpiton of Compoments
+
+
+Compoments:
+Components let you split the UI into independent, reusable pieces, and think about each piece in isolation.
+
+
+App.js :
+  The App component renders first all other tags that are used in it are imported
+  The constructor initializes the state of the component. Whenever the state changes
+  The component re renders and the change is in effect immediately.
+  State - React's way of defining what happens when a component changes its View
+  for example - a button when clicked might change its state from logged out to logged in.
+
+
+Header.js
+  The Main Page basically, contains the background video, the four moods
+  and the description.
+  
+  
+
+LogoIcon.js
+ Contaitns components for the Jazz Logo
+ 
+ 
+ Moods.js
+   This is the Moods component consists of four different moods to choose from upon a click
+   redirects the user to a backend server which processes the request to go on the playlist.
+   Four basic Moods so far.
+   
+  
+  Playlists.js
+    Ceates a playlist of songs. Uses the mood selected for the home page. Uses API call to fetch the track preview from Spotify 
+      
+      processTrack(trackItem)
+     
+     afterMount(trackList)
+      Called only after setState completes in componentDidMount. Looks for a list of tracks in data and, if found, saves to state
+     
+     pruneTracksList(tracks)
+        Input: tracks as fetched from API call for mood-specific playlist
+       Output: list of tracks processed to only include those with both album art and a preview_url
+   
+   
+  SearchBar.js
+    Search bar, allows you to search for song and add it to the playlist
+  
+  
+ SpotifyIcon.js
+  Adds the log in to Spotify button to the website
+  
+  Styles
+    Contains Css files
+   
+    
+    
+    
+    
+  
+  
+  
