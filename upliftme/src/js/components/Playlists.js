@@ -18,7 +18,7 @@ class Playlists extends Component{
 
 
   // This initially mounts our playlist component.
-    //1. Uses the query-string package to parse the URL containing the access token. 
+    //1. Uses the query-string package to parse the URL containing the access token.
         //(Access token is generated after uses the "conenct to Spotify" button)
     //2. Ensures the query provided to access the playlist page is valid
     //3. Passes the query and access token to Spotify using Spotify API
@@ -56,22 +56,23 @@ class Playlists extends Component{
     //3. After 'tracks' state is verified complete, call pruneTracksList on tracks to remove tracks which:
       //lack album art
       //lack an associated url that points to the Spotify song
-  //*Note: afterMount must be called only after setState completes in componentDidMount. 
+  //*Note: afterMount must be called only after setState completes in componentDidMount.
   afterMount(trackList){
     /*Debug print statements*/
       //console.log("afterMount ran!");
       //console.log(trackList);
       //console.log(trackList.playlists);
       //console.log(trackList.playlists.items[0]);
-    
+
     let parsd = queryString.parse(window.location.search);
     let accessToken = parsd.access_token;
     if (!accessToken){
       console.log("No access token at tracks level");
       return;
     }
+    var random=Math.floor((Math.random() * 10) + 1)
 
-    fetch(trackList.playlists.items[0].tracks.href,{
+    fetch(trackList.playlists.items[random].tracks.href,{
       headers: {'Authorization': 'Bearer ' + accessToken}
     })
       .then(response => response.json())
@@ -170,7 +171,7 @@ class Playlists extends Component{
   //Renders our Playlist component. Runs any time the state of the component changes.
     //1. Sets visual properties of component
     //2. Checks that data and tracks exists within the Playlist component. If not, renders a loading message.
-    //3. For each track in the playlist, render a MusicPlayer object with corresponding album art, track name, and artist 
+    //3. For each track in the playlist, render a MusicPlayer object with corresponding album art, track name, and artist
   render(){
     const mystyle ={
       backgroundColor: '#6600ff',
