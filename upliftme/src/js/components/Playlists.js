@@ -37,7 +37,7 @@ class Playlists extends Component{
     }
       var query = this.props.query;
       console.log(query);
-      if(query!=='Chill' && query!=='Pump' && query!=='Happy' && query!=='Sad' )
+      if(query!=='Chill' && query!=='Angry' && query!=='Happy' && query!=='Sad' )
       {
         query = 'you suck';
       }
