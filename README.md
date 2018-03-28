@@ -21,13 +21,11 @@ For example: User 1 selects (😢) and shares the song and the mood (😢) with 
 
 ### NOTE: This is just the front end application for the project. To get user authenticatied you have to go to our backend repository and follow instructions to get the backend server running.
 
+### CHECK OUR APP HERE: [Upliftme](https://upliftme.herokuapp.com)
+
 HERE IS THE LINK TO BACKEND REPO:
 
 https://github.com/kishanankara/beautifulSoup-backend
-
-### Prototype (2/23/18)
-- Watch our prototype video: https://youtu.be/IEqeHqXzRTM
-- To run our current code for the first time, use the following steps:
 
 1. Create a local clone of this repository
 
