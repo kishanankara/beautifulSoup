@@ -6,7 +6,9 @@ import MusicPlayer from 'react-responsive-music-player';
 import SpotifyIcon from './SpotifyIcon.js';
 
 
-const playlist=[];
+// const playlist=[];
+var N = 10; // max size of playlist to be rendered on screen
+const TARGET_PLAYLIST_SIZE = 50; // min size of Spotify playlist to consider
 
 class Playlists extends Component{
 
@@ -35,11 +37,11 @@ class Playlists extends Component{
     }
       var query = this.props.query;
       console.log(query);
-      if(query!='Chill' && query!='Pump' && query!='Happy' && query!='Sad' )
+      if(query!=='Chill' && query!=='Pump' && query!=='Happy' && query!=='Sad' )
       {
         query = 'you suck';
       }
-      var uri = 'https://api.spotify.com/v1/search?q=' + query + '&type=playlist';
+      var uri = 'https://api.spotify.com/v1/search?q=' + query + '&type=playlist&limit=25';
       fetch(uri,{
         headers: {'Authorization': 'Bearer ' + accessToken}
       })
@@ -71,11 +73,31 @@ class Playlists extends Component{
       return;
     }
 
-    fetch(trackList.playlists.items[0].tracks.href,{
+    // console.log('DOES trackList.playlists CHANGE OVER TIME?'); //No
+    // console.log('TrackList.playlists at start of afterMount: ',trackList.playlists);
+
+    //fetch a random playlist instead of the first one
+    var chosenPlaylistIndex = this.findLargePlaylist(trackList);
+    
+    console.log('List of playlists to choose from: ', trackList.playlists); //List of playlists
+    console.log('Random playlist index chosen: ', chosenPlaylistIndex);
+    console.log('Playlist to be fetched: ',trackList.playlists.items[chosenPlaylistIndex]); //
+    console.log('href to fetch: ',trackList.playlists.items[chosenPlaylistIndex].tracks.href);
+    
+
+    fetch(trackList.playlists.items[chosenPlaylistIndex].tracks.href,{
       headers: {'Authorization': 'Bearer ' + accessToken}
     })
       .then(response => response.json())
-      .then(tracks => this.setState( {tracks:this.pruneTracksList(tracks)} ) );
+      .then(tracks_preprune => this.setState( {tracks:this.pruneTracksList(tracks_preprune)} ) );
+
+
+    // fetch(trackList.playlists.items[0].tracks.href,{
+    //   headers: {'Authorization': 'Bearer ' + accessToken}
+    // })
+    //   .then(response => response.json())
+    //   .then(tracks => this.setState( {tracks:this.pruneTracksList(tracks)} ) );
+
     console.log("afterMount finished");
   }
 
@@ -83,6 +105,9 @@ class Playlists extends Component{
   //Input: tracks as fetched from API call for mood-specific playlist
   //Output: list of tracks processed to only include those with both album art and a preview_url
   pruneTracksList(tracks){
+    console.log('Tracks list before pruning: ',tracks);
+    console.log('Num tracks before pruning: ', tracks.items.length);
+
     if(!tracks.items)
     {
       console.log("This list of tracks has no tracks!");
@@ -93,11 +118,97 @@ class Playlists extends Component{
     for(var i=0; i<tracks.items.length; i++){
       if(this.processTrack(tracks.items[i])){
         trackList.push(tracks.items[i]);
+        console.log('Item ',i+1);
       }
     }
-    return trackList;
 
+    // var n = 10;
+    if(trackList.length < N){
+      N = trackList.length;
+    }
+
+    console.log('Length of processed tracklist is currently: ',trackList.length);
+    console.log('Tracklist before choosing 10: ',trackList);
+    console.log(trackList.length);
+    console.log('First song on tracklist: ', trackList[0]);
+    console.log('Length of processed trackList will be: ',N);
+
+
+    //choose n songs randomly before returning
+    return this.chooseNSongs(N, trackList);
   }
+
+
+  chooseNSongs(n, list){
+    let listOfNSongs=[];
+    var range = list.length;
+
+    for(var i=0; i<n; i++){
+      //Choose random index from current range
+      var indexOfRandomTrack = this.generateRandomNumber(0,range-1);
+      console.log('Index chosen: ', indexOfRandomTrack);
+      //Decrement range
+      range--;
+      //Remove chosen song at this index and add to list of chosen songs
+      console.log('**List before splice: ',list);
+      let arrayWithRemovedValue = list.splice(indexOfRandomTrack,1);
+      console.log('**List after splice: ', list);
+
+      listOfNSongs.push(arrayWithRemovedValue[0]);
+    }
+
+    console.log('============');
+    console.log('List of n songs: ',listOfNSongs);
+    return listOfNSongs;
+  }
+
+
+
+  //Returns the INDEX of a random playlist of size >== TARGET_PLAYLIST_SIZE
+  findLargePlaylist(list){
+    //let arrayTracker = []; 
+    var largePlaylistCounter = 0;
+    // var TARGET_PLAYLIST_SIZE = 50;
+    var largestPlaylist = 0;
+
+    //console.log('SCANNING PLAYLISTS');
+    //Scan list of playlists and store all with >=50 songs
+    for(var i=0; i<list.playlists.items.length; i++){
+
+      //Track largest playlist found just in case none are greater than TARGET_PLAYLIST_SIZE
+      if(list.playlists.items[i].tracks.total > largestPlaylist){
+        largestPlaylist = list.playlists.items[i].tracks.total;
+      }
+
+      if(list.playlists.items[i].tracks.total >= TARGET_PLAYLIST_SIZE){
+        largePlaylistCounter++;
+        //arrayTracker.push(i);
+      }
+    }
+
+    //If no playlists of size TARGET_PLAYLIST_SIZE, return index of largest playlist
+    // if(arrayTracker.length === 0){
+    //   return largestPlaylist;
+    // }
+    if(largePlaylistCounter === 0){
+      return largestPlaylist;
+    }
+    else{
+      //Return random index from array of large-enough songs
+      //var randomIndex = this.generateRandomNumber(0,arrayTracker.length-1);
+      var randomIndex = this.generateRandomNumber(0,largePlaylistCounter-1);
+      console.log('Random playlist index chosen: ',randomIndex);
+      console.log('Random playlist size: ',list.playlists.items[randomIndex].tracks.total);
+
+      return randomIndex;
+    }
+  }
+
+  //Chooses a random number within the min-max range provided, max inclusive
+  generateRandomNumber(min,max_inclusive){
+    return Math.floor(Math.random()*(max_inclusive-min+1)+min);
+  }
+
 
   //Returns true if both album image and preview url exist (for a provided track). We will not provide users tracks without both.
   processTrack(trackItem){
@@ -136,32 +247,32 @@ class Playlists extends Component{
 
 
 
-  //Proof of concept for manipulating track and playlist object properties from Spotify API. Currently unused.
-  populatePlaylist(){
-     const tracks=this.state.tracks;
-     if(tracks)
-     {
-       //console.log('We have data@ populate Playlist');
-       for(var i=0;i<tracks.length;i++)
-       {
-         if(tracks[i].track.preview_url && tracks[i].track.album.images[0].url && tracks[i].track.name)
-         {
-            const artists = tracks[i].track.artists;
-            const artist_arr = [];
-            for(var j=0;j<artists.length;j++)
-            {
-              artist_arr.push(artists[i]);
-            }
-            const JSON = {url: tracks[i].track.preview_url,
-                  cover: tracks[i].track.album.images[0].url,
-                  title: tracks[i].track.name,
-                  artist: artist_arr
-                 }
-            playlist.push(JSON);
-         }
-       }
-     }
-  }
+  // //Proof of concept for manipulating track and playlist object properties from Spotify API. Currently unused.
+  // populatePlaylist(){
+  //    const tracks=this.state.tracks;
+  //    if(tracks)
+  //    {
+  //      //console.log('We have data@ populate Playlist');
+  //      for(var i=0;i<tracks.length;i++)
+  //      {
+  //        if(tracks[i].track.preview_url && tracks[i].track.album.images[0].url && tracks[i].track.name)
+  //        {
+  //           const artists = tracks[i].track.artists;
+  //           const artist_arr = [];
+  //           for(var j=0;j<artists.length;j++)
+  //           {
+  //             artist_arr.push(artists[i]);
+  //           }
+  //           const JSON = {url: tracks[i].track.preview_url,
+  //                 cover: tracks[i].track.album.images[0].url,
+  //                 title: tracks[i].track.name,
+  //                 artist: artist_arr
+  //                }
+  //           playlist.push(JSON);
+  //        }
+  //      }
+  //    }
+  // }
 
 
 
