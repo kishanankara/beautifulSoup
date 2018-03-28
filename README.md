@@ -25,7 +25,7 @@ For example: User 1 selects (😢) and shares the song and the mood (😢) with 
 
 ### Why am I listening to only 30 seconds of a song? 
  
-## Spotify provides full length songs only to premium users. For developers a thirty second preview url is available.
+### Spotify provides full length songs only to premium users. For developers a thirty second preview url is available.
 
 HERE IS THE LINK TO BACKEND REPO:
 
