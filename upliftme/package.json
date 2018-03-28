@@ -1,0 +1,35 @@
+{
+  "name": "upliftme",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "flux": "^3.1.3",
+    "font-awesome": "^4.7.0",
+    "react": "^16.2.0",
+    "react-background-video-player": "^1.0.1",
+    "react-dom": "^16.2.0",
+    "react-hover-image": "^1.0.0",
+    "react-native-track-player": "^0.2.2",
+    "react-player": "^1.1.2",
+    "react-responsive-music-player": "^0.2.4",
+    "react-scripts": "1.1.1",
+    "react-search-box": "0.0.6",
+    "react-spinkit": "^3.0.0",
+    "react-video-component": "^1.4.3"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "eslint-plugin-flowtype": "^2.46.1",
+    "eslint-plugin-import": "^2.9.0",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-react": "^7.7.0",
+    "gulp": "^3.9.1"
+  }
+}

@@ -1,0 +1,151 @@
+@media all and (max-width: 1400px){
+
+  .header-content h1{
+    font-size: 8.7rem;
+
+  }
+
+  .header-content p{
+    font-size: 40px;
+  }
+
+  .v-header{
+
+    height:92vh;
+
+  }
+
+  .signin-btn{
+
+    top: -20px;
+    border: 1.5px solid #fff;
+  }
+}
+
+@media all and (max-width: 1200px){
+
+  .header-content h1{
+    font-size: 8.2rem;
+
+  }
+
+  .header-content p{
+    font-size: 35px;
+  }
+
+  .happy {
+    width:80px;
+    height:80px;
+    hspace:65px;
+  }
+  .sad {
+    width:80px;
+    height:80px;
+    hspace:65px;
+  }
+  .chill {
+    width:80px;
+    height:80px;
+    hspace:65px;
+  }
+  .angry {
+    width:80px;
+    height:80px;
+    hspace:65px;
+  }
+
+  .v-header{
+
+    height:94vh;
+
+  }
+
+  .signin-btn{
+
+    top: -25px;
+    border: 1.4px solid #fff;
+  }
+}
+
+@media all and (max-width: 1000px){
+
+  .header-content h1{
+    font-size: 7.8rem;
+
+  }
+
+  .header-content p{
+    font-size: 30px;
+  }
+
+  .v-header{
+
+    height:96vh;
+
+  }
+
+  .signin-btn{
+
+    top: -30px;
+  }
+
+}
+
+
+@media all and (max-width: 800px){
+
+  .header-content h1{
+    font-size: 7.8rem;
+
+  }
+
+  .happy {
+    width:70px;
+    height:70px;
+    hspace:55px;
+  }
+  .sad {
+    width:70px;
+    height:70px;
+    hspace:55px;
+  }
+  .chill {
+    width:70px;
+    height:70px;
+    hspace:55px;
+  }
+  .angry {
+    width:70px;
+    height:70px;
+    hspace:55px;
+  }
+
+  .v-header{
+
+    height:98vh;
+
+  }
+
+  .signin-btn{
+    top: -40px;
+
+  }
+
+  .spacer{
+    height: 0.5vh;
+  }
+
+  
+
+}
+
+@media all and (max-width: 600px){
+
+
+}
+
+
+@media all and (max-width: 400px){
+
+
+}

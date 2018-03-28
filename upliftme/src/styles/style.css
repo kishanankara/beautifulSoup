@@ -1,0 +1,196 @@
+*{
+  box-sizing: border-box;
+}
+
+body{
+  margin: 0;
+  line-height: 1.5;
+  color: #333;
+  overflow-x: hidden;
+}
+
+.v-header{
+  height:90vh;
+  display: flex;
+  align-items: center;
+  color:#fff;
+
+}
+
+.title-wrapper{
+  display: inline-block;
+}
+
+.container{
+  max-width: 1000px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin: auto;
+
+}
+
+.fullscreen-picture-wrap{
+  position: relative;
+  top:90;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.fullscreen-video-wrap{
+  position: absolute;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.fullscreen-video-wrap video{
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.header-overlay{
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #225470;
+  z-index: 1;
+  opacity: 0.5;
+}
+
+.headerimg-overlay{
+  height: 90vh;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #225470;
+  z-index: 1;
+  opacity: 0.1;
+}
+
+.header-content{
+  z-index: 2;
+}
+
+img{
+  cursor: pointer;
+}
+
+.header-content h1{
+  font-size: 9.0rem;
+  margin-top: 1vh;
+  font-family: 'Gloria Hallelujah', cursive;
+  text-align: center;
+  opacity: 0.6;
+}
+
+
+.spacer{
+  height: 0vh;
+}
+
+.header-content p{
+  font-size: 45px;
+  text-align: center;
+  font-family: 'Indie Flower', cursive;
+  opacity: 0.5;
+
+}
+
+.moods{
+  display: inline-flex;
+}
+
+.logo-header{
+  position: absolute;
+  padding: 5px;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  z-index: 30;
+}
+
+#logo-to-left{
+  float: left;
+  display: block;
+
+
+}
+
+#info-to-right{
+  float: right;
+  display: block;
+  margin-top: -3.3%;
+}
+
+.signin-btn{
+
+  top: -10px;
+  color: #fff;
+  background-color: transparent;
+  border: 1.5px solid #fff;
+  width: 250px;
+  padding: 6%;
+
+  position: relative;
+  display: block;
+  text-align: right;
+  border-radius: 3.5px;
+  letter-spacing: .6.1px;
+  text-decoration: none;
+}
+
+.signin-btn:hover{
+  cursor: pointer;
+}
+
+.icon-spotify{
+
+  left: 15px;
+  top: 8px;
+  position: absolute;
+  box-sizing: border-box;
+  color: #fff;
+
+}
+
+#descript{
+  font-family: "Gill Sans", sans-serif;
+  font-weight: 570;
+  color: white;
+  letter-spacing: .6px;
+
+}
+
+.back-ground{
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  padding: 40px;
+  float: left;
+  z-index: 100;
+  margin: 75px;
+
+}
+
+.song-container{
+  /* for right now */
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.song-container h3{
+  font-family: "Gill Sans", sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  margin: 20px;
+  margin-bottom: 30px;
+}
