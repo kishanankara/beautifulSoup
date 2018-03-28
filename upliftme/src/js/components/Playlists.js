@@ -4,7 +4,7 @@ import ReactPlayer from 'react-player';
 import queryString from 'query-string';
 import MusicPlayer from 'react-responsive-music-player';
 import SpotifyIcon from './SpotifyIcon.js';
-
+import Spinner from 'react-spinkit';
 
 // const playlist=[];
 var N = 10; // max size of playlist to be rendered on screen
@@ -212,7 +212,8 @@ class Playlists extends Component{
 
   //Returns true if both album image and preview url exist (for a provided track). We will not provide users tracks without both.
   processTrack(trackItem){
-       let image = trackItem.track.album.images[0].url;
+
+       //let image = trackItem.track.album.images[0].url;
        let prev_url = trackItem.track.preview_url;
 
 
@@ -343,9 +344,9 @@ class Playlists extends Component{
 
                     </div>
                   </div>
-              :<p>Data is loading ... </p>}
+              :<Spinner name="ball-pulse-rise" color="purple"/>}
           </div>
-              :<p>Data is loading...</p>
+              : <Spinner name="ball-pulse-rise" color="purple"/>
 
             }
       </div>
