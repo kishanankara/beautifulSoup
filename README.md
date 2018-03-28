@@ -31,30 +31,43 @@ HERE IS THE LINK TO BACKEND REPO:
 
 https://github.com/kishanankara/beautifulSoup-backend
 
-1. Create a local clone of this repository
+1. Make a local directory and change directory
 
 ```
+mkdir beautifulSoup_test
+cd beautifulSoup_test
+```
+
+2. Initialize and clone repository
+
+
+```
+git init
 git clone https://github.com/kishanankara/beautifulSoup.git
 ```
 
-2. Using your command line interface, navigate to your local repository and the directory 'upliftme' and switch branches using the command 
+3. Change directory to beautifulSoup and checkout develop branch and finally change directory to the application.
 
 ```
-git checkout origin/develop
+cd beautifulSoup
+git checkout develop
+cd upliftme
 ```
 
-3. Run the command to install dependencies
+4. Remove package-lock.json in the current directory
+```
+rm package-lock.json
+```
 
+5. Now install dependencies and start the app.
 ```
 npm install
-```
-
-4. Run the command to start front end
-```
 npm start
 ```
 
-5. Open your web browser (preferably Chrome) and enter 'localhost:3000' into the address bar. You should now be viewing the welcome page of our web application!
+6. Go to the backend repo and follow instructions for getting the backend app running. [Here is the link](https://github.com/kishanankara/beautifulSoup-backend)
+
+7. Once the backend application is up and running you should be able to click a mood and see playlists render. Enjoy!
 
 - For subsequent runs of this code, simply repeat steps 2, 4, and 5.
 
