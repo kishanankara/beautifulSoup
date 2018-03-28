@@ -23,6 +23,8 @@ For example: User 1 selects (😢) and shares the song and the mood (😢) with 
 
 ### CHECK OUR APP HERE: [Upliftme](https://upliftme.herokuapp.com)
 
+### HERE IS THE Youtube Link to the Alpha Realease : [Alpha Release](https://youtu.be/Eye9NvwS0AQ)
+
 ### Why am I listening to only 30 seconds of a song? 
  
 ### Spotify provides full length songs only to premium users. For developers a thirty second preview url is available.
