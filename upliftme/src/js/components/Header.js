@@ -1,14 +1,14 @@
 import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import ReactPlayer from 'react-player';
-import Vid from '../../assets/vid.mov';
+import Vid from '../../assets/vid.mp4';
 import Vidwebm from '../../assets/vid.webm';
 import Moods from './Moods.js';
 import SearchBar from './SearchBar.js';
 
 
 {/* The Main Page basically, contains the background video, the four moods
-  and the description. 
+  and the description.
   */}
 
 class Header extends Component{
