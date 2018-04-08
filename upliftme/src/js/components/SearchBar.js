@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import ReactPlayer from 'react-player';
-import Vid from '../../assets/vid.mov';
+import Vid from '../../assets/vid.mp4';
 import Vidwebm from '../../assets/vid.webm';
 import Moods from './Moods.js';
 import queryString from 'query-string';
@@ -9,7 +9,7 @@ import queryString from 'query-string';
 
 
 class SearchBar extends Component{
-  
+
   constructor(props) {
   	super(props);
   	this.state = {query: '', data: {}, inputCleared: false}
@@ -42,8 +42,8 @@ class SearchBar extends Component{
 
   	const url = 'https://api.spotify.com/v1/search?q=$queryStr&type=track,album,artist';
 
-  	fetch(url, { 
-        headers: {'Authorization': 'Bearer ' + accessToken} 
+  	fetch(url, {
+        headers: {'Authorization': 'Bearer ' + accessToken}
       }).then((response)=>response.json()).then((data)=> {
   		if(this.state.inputCleared || !data || queryStr !== this.state.query)
   		{
@@ -59,12 +59,12 @@ class SearchBar extends Component{
     	<div className = "search-container">
     		<input type="text" className="search-bar" onChange={
     			this.handleChange.bind(this)
-    		} /> 
+    		} />
     	</div>
 
 
-    ); 		
-    		
+    );
+
   }
 }
 
