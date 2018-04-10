@@ -19,7 +19,6 @@
 
 
 
-
 .smallbox{
   top:0;
   height: 45px;
@@ -46,6 +45,7 @@
   border-radius: 20px;
   margin: -5px 390px;
   opacity: 0.9;
+  border: 0.5px solid white;
 }
 
 .cov{
@@ -63,7 +63,7 @@
   height: 40px;
   width: 80px;
   font-size: 25px;
-  color: black;
+  color: red;
   border: 1px solid black;
   float: left;
   border-bottom-left-radius: 20px;
@@ -73,7 +73,7 @@
   height: 40px;
   width: 80px;
   font-size: 25px;
-  color: black;
+  color: red;
   border: 1px solid black;
   float: left;
 }
@@ -81,7 +81,7 @@
   height: 40px;
   width: 80px;
   font-size: 25px;
-  color: black;
+  color: red;
   border: 1px solid black;
   float: left;
 }
