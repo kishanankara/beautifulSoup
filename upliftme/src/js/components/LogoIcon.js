@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import queryString from 'query-string';
 import ReactPlayer from 'react-player';
 import ReactVideoComponent from 'react-video-component';
-import Vid from '../../assets/vid.mov';
+import Vid from '../../assets/vid.mp4';
 import Vidwebm from '../../assets/vid.webm';
 import Logo from '../../assets/logo.png';
 import Spotify from '../../assets/spotify.png';
