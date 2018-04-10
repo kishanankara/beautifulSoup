@@ -19,9 +19,10 @@ import Moods from './Moods.js';    // {/*This line importst the Moods file from 
 import '../../styles/style.css';
 import Playlists from './Playlists.js';
 import SpotifyIcon from './SpotifyIcon.js';
-import goBack from './../../assets/goback.png'
+import goBack from './../../assets/goback.png';
 
-import '../../styles/media.css'
+import '../../styles/first_media.css';
+import '../../styles/second_media.css';
 // {/* import HoverImage from "react-hover-image"; */}
 
 

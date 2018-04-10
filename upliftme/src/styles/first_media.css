@@ -36,23 +36,25 @@
   .happy {
     width:80px;
     height:80px;
-    hspace:65px;
+
   }
   .sad {
     width:80px;
     height:80px;
-    hspace:65px;
+
   }
   .chill {
     width:80px;
     height:80px;
-    hspace:65px;
+
   }
   .angry {
     width:80px;
     height:80px;
-    hspace:65px;
+
   }
+
+
 
   .v-header{
 
@@ -74,78 +76,39 @@
 
   }
 
-  .header-content p{
-    font-size: 30px;
-  }
-
-  .v-header{
-
-    height:96vh;
-
-  }
-
   .signin-btn{
-
     top: -30px;
   }
 
+
+
 }
 
-
-@media all and (max-width: 800px){
-
-  .header-content h1{
-    font-size: 7.8rem;
-
-  }
-
-  .happy {
-    width:70px;
-    height:70px;
-    hspace:55px;
-  }
-  .sad {
-    width:70px;
-    height:70px;
-    hspace:55px;
-  }
-  .chill {
-    width:70px;
-    height:70px;
-    hspace:55px;
-  }
-  .angry {
-    width:70px;
-    height:70px;
-    hspace:55px;
-  }
-
-  .v-header{
-
-    height:98vh;
-
-  }
+@media all and (max-width: 900px){
 
   .signin-btn{
-    top: -40px;
+    top: -35px;
 
   }
 
-  .spacer{
-    height: 0.5vh;
+
+  .happy {
+    width:65px;
+    height:65px;
+
   }
+  .sad {
+    width:65px;
+    height:65px;
 
-  
-
-}
-
-@media all and (max-width: 600px){
-
-
-}
-
-
-@media all and (max-width: 400px){
-
+  }
+  .chill {
+    width:65px;
+    height:65px;
+  }
+  .angry {
+    width:65px;
+    height:65px;
+  }
 
 }
