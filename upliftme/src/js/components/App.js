@@ -20,10 +20,9 @@ import '../../styles/style.css';
 import Playlists from './Playlists.js';
 import SpotifyIcon from './SpotifyIcon.js';
 import goBack from './../../assets/goback.png'
-
+import TrackGenerator from './TrackGenerator.js';
 import '../../styles/media.css'
 // {/* import HoverImage from "react-hover-image"; */}
-
 
 
 
@@ -36,7 +35,6 @@ class ReloadItSelf extends Component{
     );
   }
 }
-
 
 
 // {/* The App component renders first all other tags that are used in it are imported
@@ -54,41 +52,55 @@ class App extends Component {
     this.state={ user : user_data}
   }
 
-
-  //*<!--/*mountNow: Checks for the query in the endpoint and only then renders the playlist part of it.
-
-
- mountNow()
- {
-  var query = window.location.href.split('?')[0];
-  query= query.substr(query.lastIndexOf('/')+1);
-  return query;
+ componentDidMount(){
+  var pathArray = window.location.pathname.split('/');
+  for(var i=0;i<pathArray.length;i++){
+    if(pathArray[i]==="secretKey" && i<pathArray.length-2){
+      this.setState({mood: pathArray[i+1]});
+      this.setState({key: pathArray[i+2]});
+      break;
+    }
+  }
  }
 
- //{/* This component takes care of the functionality for the Connect with Spotify button on the homepage. */}
+
+ //{/* This component will render home page by default and a playlist of songs if it receives a redirect from thebackend to a valid Mood*/}
  // {/*Checking it the current window location has a callback endpoint*/}
  //{/*Things before the colon is when the condition hold true else it is false and it goes to the else clause. */}
   render() {
     return (
-      <div className="App">
-      {window.location.href == 'http://localhost:3000/'?
+      <div className="App">     
+      {
+        (window.location.href=='http://localhost:3000/Happy' || 
+          window.location.href=='http://localhost:3000/Sad' ||
+          window.location.href=='http://localhost:3000/Chill' ||
+          window.location.href=='http://localhost:3000/Angry') ?
 
-      <div>
-        <header class ="logo-header">
-          <ReloadItSelf/>
-          <SpotifyIcon data='Connect with Spotify' img={Spotify}/>
-        </header>
-        <Header/>
-      </div>
-      :
           <div style={{'background-color':'#6600ff'}}>
-              <div style={{'text-align': 'center','font-size': '50px'}}>
+            <div style={{'text-align': 'center','font-size': '50px'}}>
+              <header class = "logo-header">
+              </header>
+              <Playlists key={window.location.href} query={'Happy'} />
+            </div>
+          </div>
+          :
+          (this.state.key) ?
+              <div style={{'background-color':'#6600ff'}}>
+                <div style={{'text-align': 'center','font-size': '50px'}}>
                   <header class = "logo-header">
                   </header>
-                  <Playlists key={window.location.href} query={this.mountNow()} />
+                  <TrackGenerator secret = {this.state.key} mood = {this.state.mood}/>
+                </div>
               </div>
-           </div>
-            }
+              :
+              <div>
+                <header class ="logo-header">
+                  <ReloadItSelf/>
+                  <SpotifyIcon data='Connect with Spotify' img={Spotify}/>
+                </header>
+                <Header/>
+              </div>
+      }
       </div>
     );
   }

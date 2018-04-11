@@ -344,9 +344,9 @@ class Playlists extends Component{
 
                     </div>
                   </div>
-              :<Spinner name="ball-pulse-rise" color="purple"/>}
+              :<Spinner name="ball-pulse-rise" color="green"/>}
           </div>
-              : <Spinner name="ball-pulse-rise" color="purple"/>
+              : <Spinner name="ball-pulse-rise" color="black"/>
 
             }
       </div>
