@@ -94,7 +94,7 @@
 
   .logo{
     position: absolute;
-    clip: rect(0px,51px, 60px, 0px);
+    clip: rect(0px,55px, 60px, 0px);
   }
 
   .signin-btn{

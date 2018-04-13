@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types'
 import '../../styles/Player.css';
+import Function from './Function.js';
 
 class Player extends Component {
 
@@ -36,6 +37,7 @@ class Player extends Component {
     const activeMusic = playlist[activeMusicIndex]
 
     if(this.refs.player){
+      console.log("currentsong?");
       var player = this.refs.player;
       if(this.refs.player.currentSrc !== activeMusic.src){
       this.refs.player.src = activeMusic.src;
@@ -44,10 +46,12 @@ class Player extends Component {
       if(player.paused){
         if(this.state.is_playing){
           player.play();
+          console.log("play()");
         }
       }
       else if (!this.state.is_playing){
         player.pause();
+        console.log("puase()");
       }
     }
 
@@ -67,9 +71,16 @@ class Player extends Component {
             <p> / </p>
             <p> {activeMusic.artist}</p>
           </div>
-          <div className = "exiting"><i className="fa fa-times"></i></div>
-          <div onClick={this.togglePlay.bind(this)} className = "playing">
-            <i className={classnames(playerClsName)}></i>
+          <div className = "deleting"><i className="fa fa-times"></i></div>
+          <div className = "playing" onClick={this.togglePlay.bind(this)} >
+            <i className ={classnames(playerClsName)}></i>
+
+             {/* <Function playingHere={[{
+                  cover: activeMusic.cover,
+                  title: activeMusic.title,
+                  artist: activeMusic.artist
+                }]}/> */}
+
           </div>
         </div>
 
@@ -82,14 +93,17 @@ class Player extends Component {
   }
 }
 
+
 document.addEventListener('play', function(e){
     var audios = document.getElementsByTagName('audio');
     for(var i = 0, len = audios.length; i < len;i++){
         if(audios[i] != e.target){
             audios[i].pause();
+            console.log("evenlistener");
         }
     }
 }, true);
+
 
 function classnames(obj){
   var css = [];

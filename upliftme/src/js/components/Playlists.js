@@ -5,10 +5,11 @@ import queryString from 'query-string';
 import MusicPlayer from 'react-responsive-music-player';
 import SpotifyIcon from './SpotifyIcon.js';
 import Spinner from 'react-spinkit';
-
+import img from '../../assets/back.jpg';
 import Player from './Player.js';
 import Backtohome from './Backtohome.js';
 import Function from './Function.js';
+//import img from '../../assets/back.jpg';
 import '../../styles/playlist.css';
 import testing from '../../assets/back.jpg';
 
@@ -296,13 +297,16 @@ class Playlists extends Component{
 
           {this.state.data ?
             <div>
-              <div className = "wrapping">
-                <Backtohome/>
-                <Function/>
-              </div>
               {/*console.log("We have data at render!")*/}
 
                 {this.state.tracks?
+                <div>
+                  <div className = "wrapping"
+                    style={{backgroundImage: `url(${this.state.tracks[0].track.album.images[0].url})`}}
+                  >
+                    <Backtohome/>
+                    <Function/>
+                  </div>
                   <div className = "scrolling">
                     {/*console.log("We have tracks at render!")*/}
                     {/*console.log(this.state.tracks)*/}
@@ -323,6 +327,7 @@ class Playlists extends Component{
 
                   </div>
                   </div>
+                </div>
               :<Spinner name="ball-pulse-rise" color="purple"/>}
           </div>
               : <Spinner name="ball-pulse-rise" color="purple"/>
