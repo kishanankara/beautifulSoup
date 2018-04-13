@@ -21,17 +21,15 @@ For example: User 1 selects (😢) and shares the song and the mood (😢) with 
 
 ### NOTE: This is just the front end application for the project. To get user authenticatied you have to go to our backend repository and follow instructions to get the backend server running.
 
-### HERE IS THE BETA LANDING PAGE HERE: [Landing Page](https://www.acsu.buffalo.edu/~ayoolaob/landingpage.html)
+### BETA RELEASE LANDING PAGE: [Landing Page](https://www.acsu.buffalo.edu/~ayoolaob/landingpage.html)
 
-### CHECK OUR APP HERE: [Upliftme](https://upliftme.herokuapp.com)
+### CHECK OUT OUR APP: [Upliftme](https://upliftme.herokuapp.com)
 
-### HERE IS THE Youtube Link to the Alpha Realease : [Alpha Release](https://youtu.be/Eye9NvwS0AQ)
+### Here is the YouTube Link to the Beta Release: [Beta Release](https://youtu.be/-8ixqKCNDDU)
 
-### HERE IS THE Youtube Link to the Beta Release: [Beta Release]()
-
-### Why am I listening to only 30 seconds of a song? 
+### Frequently asked question: "Why am I listening to only 30 seconds of a song?"
  
-### Spotify provides full length songs only to premium users. For developers a thirty second preview url is available.
+Spotify provides full length songs to premium users. Developers have access to thirty second previews.
 
 HERE IS THE LINK TO BACKEND REPO:
 
