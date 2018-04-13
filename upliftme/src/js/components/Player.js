@@ -26,8 +26,14 @@ class Player extends Component {
   }
 
   togglePlay(){
+
     this.setState({is_playing: !this.state.is_playing});
   }
+
+  removeSong(){
+  alert("Song will be removed");
+
+}
 
   render() {
 
@@ -46,7 +52,7 @@ class Player extends Component {
           player.play();
         }
       }
-      else if (!this.state.is_playing){
+      else if (this.state.is_playing){
         player.pause();
       }
     }
@@ -67,7 +73,7 @@ class Player extends Component {
             <p> / </p>
             <p> {activeMusic.artist}</p>
           </div>
-          <div className = "exiting"><i className="fa fa-times"></i></div>
+          <div onClick={this.removeSong.bind(this)} className = "exiting"><i className="fa fa-times"></i></div>
           <div onClick={this.togglePlay.bind(this)} className = "playing">
             <i className={classnames(playerClsName)}></i>
           </div>
