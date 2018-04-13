@@ -1,0 +1,153 @@
+.bigbox{
+  background-color: white;
+  height: 240px;
+  width: 700px;
+  border-radius: 20px;
+  width: 50%;
+  margin: -10px auto;
+  opacity: 0.9;
+  border: 1px solid white;
+}
+
+.cover_pic{
+  height: 238px;
+  width: 240px;
+  float:left;
+  border-radius: 20px;
+  cursor: default;
+}
+.listing{
+  overflow: hidden;
+}
+
+
+.like{
+  height: 40px;
+  width: 37.5px;
+  font-size: 22.5px;
+  color: red;
+  /*border: 1px solid black;*/
+  float: right;
+  cursor:pointer;
+}
+.dislike{
+  height: 40px;
+  width: 37.5px;
+  font-size: 22.5px;
+  color: red;
+  /*border: 1px solid black;*/
+  float: right;
+  cursor:pointer;
+}
+.dislike > i {
+  margin: 12px 5px;
+}
+.plus{
+  height: 40px;
+  width: 37.5px;
+  font-size: 22.5px;
+  color: red;
+  /*border: 1px solid black;*/
+  float: right;
+  cursor:pointer;
+}
+.plus > i {
+  margin: 8px 5px;
+}
+
+
+.subject_box{
+
+  height: 110px;
+  width: 280px;
+  /* border: 1px solid black; */
+  float: right;
+  margin: 0 20%;
+}
+
+
+.artist_name{
+  font-family: "Gill Sans", sans-serif;
+  font-size: 22.5px;
+  float: left;
+  margin: 30px;
+}
+.title_name{
+  font-family: "Gill Sans", sans-serif;
+  font-size: 30px;
+  float: left;
+  margin: -12.5px -95px;
+}
+
+.progress_time{
+  height: 15px;
+  width: 490px;
+  /*border: 1px solid black;*/
+  float: right;
+}
+
+.progress_bar{
+  height: 20px;
+  width: 490px;
+  /*border: 1px solid black;*/
+  float: right;
+}
+
+.progress{
+  height: 12.5px;
+  width: 490px;
+  background-color: black;
+  border-radius: 10px;
+  margin: 2.5px 0;
+}
+
+.progress > .bar{
+  height: 12.5px;
+  width: 50%;
+  background-color: #6600ff;
+  border-radius: 10px;
+  margin: 2.5px 0;
+
+}
+
+.box_in_one{
+  margin: 0 17.5px;
+}
+
+.loops{
+  height: 30px;
+  width: 32.5px;
+  font-size: 17.5px;
+  color: red;
+  /*border: 1px solid black;*/
+  float: right;
+  cursor:pointer;
+
+}
+.plays{
+  height: 30px;
+  width: 32.5px;
+  font-size: 17.5px;
+  color: red;
+  /*border: 1px solid black;*/
+  float: right;
+  cursor:pointer;
+}
+.volume{
+  height: 30px;
+  width: 32.5px;
+  font-size: 17.5px;
+  color: red;
+  /*border: 1px solid black;*/
+  float: right;
+  cursor:pointer;
+}
+
+.play_controls{
+  margin: 0 30px;
+}
+
+/* .divi{
+  display: inline-block;
+  float:left;
+} */

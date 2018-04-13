@@ -26,10 +26,14 @@ class Moods extends Component{
   render(){
     return(
       <div class ="moods">
-          <img src={Happy}  class ="happy" width="90" height="90" hspace="75" onClick={()=>window.location='http://localhost:8888/Happy'} />
-          <img src={Angry} class ="angry" width="90" height="90" hspace="75"  onClick={() =>window.location='http://localhost:8888/Angry'}/>
-          <img src={Sad} class ="sad" width="90" height="90" hspace="75" onClick={() => window.location='http://localhost:8888/Sad'}/>
-          <img src={Chill} class ="chill" width="90" height="90" hspace="75" onClick={() => window.location='http://localhost:8888/Chill'}/>
+          <span class = 'first_half'>
+            <img src={Happy}  class ="happy" width="85" height="85" onClick={()=>window.location='http://localhost:8888/secret/Happy'} />
+            <img src={Angry} class ="angry" width="85" height="85"  onClick={() =>window.location='http://localhost:8888/secret/Angry'}/>
+          </span>
+          <span class = 'second_half'>
+            <img src={Sad} class ="sad" width="85" height="85" onClick={() => window.location='http://localhost:8888/secret/Sad'}/>
+            <img src={Chill} class ="chill" width="85" height="85" onClick={() => window.location='http://localhost:8888/secret/Chill'}/>
+          </span>
       </div>
     );
   }

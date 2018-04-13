@@ -5,6 +5,13 @@ import queryString from 'query-string';
 import MusicPlayer from 'react-responsive-music-player';
 import SpotifyIcon from './SpotifyIcon.js';
 import Spinner from 'react-spinkit';
+import img from '../../assets/back.jpg';
+import Player from './Player.js';
+import Backtohome from './Backtohome.js';
+import Function from './Function.js';
+//import img from '../../assets/back.jpg';
+import '../../styles/playlist.css';
+import testing from '../../assets/back.jpg';
 
 // const playlist=[];
 var N = 10; // max size of playlist to be rendered on screen
@@ -20,7 +27,7 @@ class Playlists extends Component{
 
 
   // This initially mounts our playlist component.
-    //1. Uses the query-string package to parse the URL containing the access token. 
+    //1. Uses the query-string package to parse the URL containing the access token.
         //(Access token is generated after uses the "conenct to Spotify" button)
     //2. Ensures the query provided to access the playlist page is valid
     //3. Passes the query and access token to Spotify using Spotify API
@@ -28,8 +35,8 @@ class Playlists extends Component{
     //5. After state is set, calls afterMount to process the returned Spotify data
   componentDidMount(){
     //console.log("componentDidMount ran!");
-    let parsd = queryString.parse(window.location.search);
-    let accessToken = parsd.access_token;
+    let accessToken = this.props.secret;
+		let mood = this.props.mood;
 
     if (!accessToken){
       console.log("Uh oh, no access token found at mounting");
@@ -48,6 +55,11 @@ class Playlists extends Component{
       .then(response => response.json())
       .then(data => this.setState( {data:data}, function(){this.afterMount(this.state.data);} ) );
 
+      fetch('https://api.spotify.com/v1/me',{
+        headers: {'Authorization': 'Bearer ' + accessToken}
+      })
+      .then(response => response.json())
+      .then(data=> this.setState({details: data}));
   }
 
 
@@ -58,16 +70,16 @@ class Playlists extends Component{
     //3. After 'tracks' state is verified complete, call pruneTracksList on tracks to remove tracks which:
       //lack album art
       //lack an associated url that points to the Spotify song
-  //*Note: afterMount must be called only after setState completes in componentDidMount. 
+  //*Note: afterMount must be called only after setState completes in componentDidMount.
   afterMount(trackList){
     /*Debug print statements*/
       //console.log("afterMount ran!");
       //console.log(trackList);
       //console.log(trackList.playlists);
       //console.log(trackList.playlists.items[0]);
-    
-    let parsd = queryString.parse(window.location.search);
-    let accessToken = parsd.access_token;
+
+      let accessToken = this.props.secret;
+  		let mood = this.props.mood;
     if (!accessToken){
       console.log("No access token at tracks level");
       return;
@@ -78,12 +90,12 @@ class Playlists extends Component{
 
     //fetch a random playlist instead of the first one
     var chosenPlaylistIndex = this.findLargePlaylist(trackList);
-    
+
     console.log('List of playlists to choose from: ', trackList.playlists); //List of playlists
     console.log('Random playlist index chosen: ', chosenPlaylistIndex);
     console.log('Playlist to be fetched: ',trackList.playlists.items[chosenPlaylistIndex]); //
     console.log('href to fetch: ',trackList.playlists.items[chosenPlaylistIndex].tracks.href);
-    
+
 
     fetch(trackList.playlists.items[chosenPlaylistIndex].tracks.href,{
       headers: {'Authorization': 'Bearer ' + accessToken}
@@ -166,7 +178,7 @@ class Playlists extends Component{
 
   //Returns the INDEX of a random playlist of size >== TARGET_PLAYLIST_SIZE
   findLargePlaylist(list){
-    //let arrayTracker = []; 
+    //let arrayTracker = [];
     var largePlaylistCounter = 0;
     // var TARGET_PLAYLIST_SIZE = 50;
     var largestPlaylist = 0;
@@ -247,73 +259,41 @@ class Playlists extends Component{
   }
 
 
-
-  // //Proof of concept for manipulating track and playlist object properties from Spotify API. Currently unused.
-  // populatePlaylist(){
-  //    const tracks=this.state.tracks;
-  //    if(tracks)
-  //    {
-  //      //console.log('We have data@ populate Playlist');
-  //      for(var i=0;i<tracks.length;i++)
-  //      {
-  //        if(tracks[i].track.preview_url && tracks[i].track.album.images[0].url && tracks[i].track.name)
-  //        {
-  //           const artists = tracks[i].track.artists;
-  //           const artist_arr = [];
-  //           for(var j=0;j<artists.length;j++)
-  //           {
-  //             artist_arr.push(artists[i]);
-  //           }
-  //           const JSON = {url: tracks[i].track.preview_url,
-  //                 cover: tracks[i].track.album.images[0].url,
-  //                 title: tracks[i].track.name,
-  //                 artist: artist_arr
-  //                }
-  //           playlist.push(JSON);
-  //        }
-  //      }
-  //    }
-  // }
-
-
-
-
-
   //Renders our Playlist component. Runs any time the state of the component changes.
     //1. Sets visual properties of component
     //2. Checks that data and tracks exists within the Playlist component. If not, renders a loading message.
-    //3. For each track in the playlist, render a MusicPlayer object with corresponding album art, track name, and artist 
+    //3. For each track in the playlist, render a MusicPlayer object with corresponding album art, track name, and artist
   render(){
-    const mystyle ={
-      backgroundColor: '#6600ff',
-      fontSize: 13,
-      height: 250,
-      width: 1500,
-      fontColor: 'white',
-      flex:1,
-      borderStyle : 'solid',
-      borderColor: 'black'
-    }
-    const elementsize ={
-      backgroundColor: '#6600ff',
-      height: 250,
-      width: 1400,
-      fontColor: 'white',
-      alignItems: 'center',
-      justifyContent : 'flex-start'
-
-    }
-    const componentsize ={
-      backgroundColor: 'white',
-      height: 5000,
-      width: 1400,
-      flex:1,
-      fontColor: 'white',
-      flexDirection: 'column',
-      alignItems: 'center',
-      justifyContent : 'flex-start'
-
-    }
+    // const mystyle ={
+    //   backgroundColor: '#6600ff',
+    //   fontSize: 13,
+    //   height: 250,
+    //   width: 1500,
+    //   fontColor: 'white',
+    //   flex:1,
+    //   borderStyle : 'solid',
+    //   borderColor: 'black'
+    // }
+    // const elementsize ={
+    //   backgroundColor: '#6600ff',
+    //   height: 250,
+    //   width: 1400,
+    //   fontColor: 'white',
+    //   alignItems: 'center',
+    //   justifyContent : 'flex-start'
+    //
+    // }
+    // const componentsize ={
+    //   backgroundColor: 'white',
+    //   height: 5000,
+    //   width: 1400,
+    //   flex:1,
+    //   fontColor: 'white',
+    //   flexDirection: 'column',
+    //   alignItems: 'center',
+    //   justifyContent : 'flex-start'
+    //
+    // }
 
     //console.log("render ran!");
     //console.log(this.state.data);
@@ -321,29 +301,44 @@ class Playlists extends Component{
       <div >
 
           {this.state.data ?
-            <div>
+            <div className= "listing" >
               {/*console.log("We have data at render!")*/}
-                {this.state.tracks?
-                  <div>
+
+                {this.state.tracks && this.state.details?
+                <div>
+                  <div className = "wrapping"
+                    style={{backgroundImage: `url(${this.state.tracks[0].track.album.images[0].url})`}}
+                  >
+
+                    <Backtohome/>
+                    <div className = "right_box">
+                      <p>Welcome</p>
+                      <p> {this.state.details.display_name} </p>
+                    </div>
+
+                    <Function/>
+                  </div>
+                  <div className = "scrolling">
                     {/*console.log("We have tracks at render!")*/}
                     {/*console.log(this.state.tracks)*/}
-                      <div>{this.state.tracks.map(m =>
-                        <div key={m.track.id}>
-                          { <div>
-                            <div style = {elementsize}>
-                            <MusicPlayer playlist={[{url: m.track.preview_url,
-                                  cover: m.track.album.images[0].url,
-                                  title: m.track.name,
-                                  artist: [m.track.artists.map(n => n.name)]
-                                }]} progressColor = 'black' btnColor= 'red' style={mystyle}/>
-                            </div>
-                            </div>
-                          }
-                        </div>
-                      )}
+                    <div>{this.state.tracks.map(m =>
+                      <div key={m.track.id}>
+                        { <div>
 
-                    </div>
+                          <Player playlist={[{src: m.track.preview_url,
+                                cover: m.track.album.images[0].url,
+                                title: m.track.name,
+                                artist: [m.track.artists.map(n => n.name)]
+                              }]}/>
+
+                          </div>
+                        }
+                      </div>
+                    )}
+
                   </div>
+                  </div>
+                </div>
               :<Spinner name="ball-pulse-rise" color="purple"/>}
           </div>
               : <Spinner name="ball-pulse-rise" color="purple"/>

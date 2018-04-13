@@ -30,7 +30,7 @@ class SpotifyIcon extends Component{
   render(){
     return(
       <div id = 'info-to-right'>
-        <div class ="signin-btn" onClick={()=> (this.props.func=='Login')?window.location.href='http://localhost:8888/login':window.location.href = 'http://localhost:3000/'}>
+        <div class ="signin-btn" onClick={()=> window.location.href='http://localhost:8888/login'}>
           <div class = "icon-spotify">
             <img src={this.props.img} class = "logo" width="35" height="35"/>
           </div>
