@@ -54,10 +54,12 @@
 
 
 .subject_box{
+
   height: 110px;
-  width: 490px;
-  /*border: 1px solid black;*/
+  width: 280px;
+  /* border: 1px solid black; */
   float: right;
+  margin: 0 20%;
 }
 
 

@@ -16,7 +16,10 @@
   height: 300px;
 }
 
-
+.top{
+  top:0;
+  height: 50px;
+}
 
 .smallbox{
   top:0;
@@ -25,6 +28,25 @@
   background-color: #0d0815;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
+}
+
+.right_box{
+  top: 0;
+  height: 100px;
+  width: 160px;
+  background-color: #6600ff;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  float: right;
+}
+
+.right_box > p{
+  font-size: 20px;
+  font-weight: bold;
+  font-family: 'Indie Flower', cursive;
+  text-align: inherit;
+  color: red;
+  margin: 10px;
 }
 
 .back_home{

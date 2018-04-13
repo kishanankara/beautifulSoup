@@ -309,8 +309,13 @@ class Playlists extends Component{
                   <div className = "wrapping"
                     style={{backgroundImage: `url(${this.state.tracks[0].track.album.images[0].url})`}}
                   >
-                    <p>Welcome {this.state.details.display_name}</p>
+
                     <Backtohome/>
+                    <div className = "right_box">
+                      <p>Welcome</p>
+                      <p> {this.state.details.display_name} </p>
+                    </div>
+
                     <Function/>
                   </div>
                   <div className = "scrolling">

@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types'
 import '../../styles/Player.css';
-import Function from './Function.js';
 
 class Player extends Component {
 
@@ -74,13 +73,6 @@ class Player extends Component {
           <div className = "deleting"><i className="fa fa-times"></i></div>
           <div className = "playing" onClick={this.togglePlay.bind(this)} >
             <i className ={classnames(playerClsName)}></i>
-
-             {/* <Function playingHere={[{
-                  cover: activeMusic.cover,
-                  title: activeMusic.title,
-                  artist: activeMusic.artist
-                }]}/> */}
-
           </div>
         </div>
 
