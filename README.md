@@ -27,6 +27,8 @@ For example: User 1 selects (😢) and shares the song and the mood (😢) with 
 
 ### HERE IS THE Youtube Link to the Alpha Realease : [Alpha Release](https://youtu.be/Eye9NvwS0AQ)
 
+### HERE IS THE Youtube Link to the Beta Release: [Beta Release]()
+
 ### Why am I listening to only 30 seconds of a song? 
  
 ### Spotify provides full length songs only to premium users. For developers a thirty second preview url is available.
