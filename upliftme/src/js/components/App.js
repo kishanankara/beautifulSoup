@@ -57,7 +57,16 @@ class App extends Component {
 
 
   //*<!--/*mountNow: Checks for the query in the endpoint and only then renders the playlist part of it.
-
+  componentDidMount(){
+   var pathArray = window.location.pathname.split('/');
+   for(var i=0;i<pathArray.length;i++){
+     if(pathArray[i]==="secretKey" && i<pathArray.length-2){
+       this.setState({mood: pathArray[i+1]});
+       this.setState({key: pathArray[i+2]});
+       break;
+     }
+   }
+  }
 
  mountNow()
  {
@@ -69,30 +78,43 @@ class App extends Component {
  //{/* This component takes care of the functionality for the Connect with Spotify button on the homepage. */}
  // {/*Checking it the current window location has a callback endpoint*/}
  //{/*Things before the colon is when the condition hold true else it is false and it goes to the else clause. */}
-  render() {
-    return (
-      <div className="App">
-      {window.location.href == 'http://localhost:3000/'?
+ render() {
+   return (
+     <div className="App">
+     {
+       (window.location.href=='http://localhost:3000/Happy' ||
+         window.location.href=='http://localhost:3000/Sad' ||
+         window.location.href=='http://localhost:3000/Chill' ||
+         window.location.href=='http://localhost:3000/Angry') ?
 
-      <div>
-        <header class ="logo-header">
-          <ReloadItSelf/>
-          <SpotifyIcon data='Connect with Spotify' img={Spotify}/>
-        </header>
-        <Header/>
-      </div>
-      :
-          <div style={{'background-color':'#6600ff'}}>
-              <div style={{'text-align': 'center','font-size': '50px'}}>
-                  <header class = "logo-header">
-                  </header>
-                  <Playlists key={window.location.href} query={this.mountNow()} />
-              </div>
+         <div style={{'background-color':'#6600ff'}}>
+           <div style={{'text-align': 'center','font-size': '50px'}}>
+             <header class = "logo-header">
+             </header>
+             <Playlists key={window.location.href} query={'Happy'} />
            </div>
-            }
-      </div>
-    );
-  }
+         </div>
+         :
+         (this.state.key) ?
+             <div style={{'background-color':'#6600ff'}}>
+               <div style={{'text-align': 'center','font-size': '50px'}}>
+                 <header class = "logo-header">
+                 </header>
+                 <Playlists secret = {this.state.key} query = {this.state.mood}/>
+               </div>
+             </div>
+             :
+             <div>
+               <header class ="logo-header">
+                 <ReloadItSelf/>
+                 <SpotifyIcon data='Connect with Spotify' img={Spotify}/>
+               </header>
+               <Header/>
+             </div>
+     }
+     </div>
+   );
+ }
 }
 
 
