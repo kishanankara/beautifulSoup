@@ -55,6 +55,11 @@ class Playlists extends Component{
       .then(response => response.json())
       .then(data => this.setState( {data:data}, function(){this.afterMount(this.state.data);} ) );
 
+      fetch('https://api.spotify.com/v1/me',{
+        headers: {'Authorization': 'Bearer ' + accessToken}
+      })
+      .then(response => response.json())
+      .then(data=> this.setState({details: data}));
   }
 
 
@@ -299,11 +304,12 @@ class Playlists extends Component{
             <div>
               {/*console.log("We have data at render!")*/}
 
-                {this.state.tracks?
+                {this.state.tracks && this.state.details?
                 <div>
                   <div className = "wrapping"
                     style={{backgroundImage: `url(${this.state.tracks[0].track.album.images[0].url})`}}
                   >
+                    <p>Welcome {this.state.details.display_name}</p>
                     <Backtohome/>
                     <Function/>
                   </div>
