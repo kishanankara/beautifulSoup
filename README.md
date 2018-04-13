@@ -21,9 +21,13 @@ For example: User 1 selects (😢) and shares the song and the mood (😢) with 
 
 ### NOTE: This is just the front end application for the project. To get user authenticatied you have to go to our backend repository and follow instructions to get the backend server running.
 
+### HERE IS THE BETA LANDING PAGE HERE: [Landing Page](https://www.acsu.buffalo.edu/~ayoolaob/landingpage.html)
+
 ### CHECK OUR APP HERE: [Upliftme](https://upliftme.herokuapp.com)
 
 ### HERE IS THE Youtube Link to the Alpha Realease : [Alpha Release](https://youtu.be/Eye9NvwS0AQ)
+
+### HERE IS THE Youtube Link to the Beta Release: [Beta Release]()
 
 ### Why am I listening to only 30 seconds of a song? 
  
