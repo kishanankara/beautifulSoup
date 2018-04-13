@@ -1,9 +1,15 @@
+.listing{
+  overflow: hidden;
+}
+
+
 .wrapping{
   top:0;
   left: 0;
   width: 100%;
   height: 55vh;
   overflow: hidden;
+
   background-repeat: no-repeat;
   background-size: 100% 400px;
   position:relative;
@@ -12,8 +18,9 @@
 
 .scrolling{
   overflow: scroll;
+  overflow-x: hidden;
   width: 100%;
-  height: 300px;
+  height: 375px;
 }
 
 .top{

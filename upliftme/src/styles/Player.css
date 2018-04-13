@@ -6,6 +6,9 @@
   border-radius: 5px;
   border: 1px solid #9090901a;
 }
+.listing{
+  overflow: hidden;
+}
 
 .player:hover {
   background-color: #e5e5e5;

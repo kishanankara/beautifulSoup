@@ -96,7 +96,7 @@ class App extends Component {
          </div>
          :
          (this.state.key) ?
-             <div style={{'background-color':'#6600ff'}}>
+             <div className="listing" style={{'background-color':'#6600ff'}}>
                <div style={{'text-align': 'center','font-size': '50px'}}>
                  <header class = "logo-header">
                  </header>

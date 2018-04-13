@@ -104,6 +104,12 @@ img{
 
 }
 
+.App{
+  overflow: hidden;
+}
+
+
+
 .happy {
   margin:0 8%;
 }

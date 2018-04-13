@@ -298,10 +298,10 @@ class Playlists extends Component{
     //console.log("render ran!");
     //console.log(this.state.data);
     return(
-      <div className = "listing" >
+      <div >
 
           {this.state.data ?
-            <div>
+            <div className= "listing" >
               {/*console.log("We have data at render!")*/}
 
                 {this.state.tracks && this.state.details?
