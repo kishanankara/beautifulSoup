@@ -64,13 +64,13 @@ class Player extends Component {
       <div className = "player">
 
         <div className = "inPlayer">
+          <img className = "image" src ={activeMusic.cover} />
           <div className = "subject">
-            <img className = "image" src ={activeMusic.cover} />
             <p> {activeMusic.title} </p>
             <p> / </p>
             <p> {activeMusic.artist}</p>
           </div>
-          <div className = "deleting"><i className="fa fa-times"></i></div>
+          {/* <div className = "deleting"><i className="fa fa-times"></i></div> */}
           <div className = "playing" onClick={this.togglePlay.bind(this)} >
             <i className ={classnames(playerClsName)}></i>
           </div>

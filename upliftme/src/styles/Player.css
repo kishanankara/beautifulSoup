@@ -6,9 +6,6 @@
   border-radius: 5px;
   border: 1px solid #9090901a;
 }
-.listing{
-  overflow: hidden;
-}
 
 .player:hover {
   background-color: #e5e5e5;
@@ -19,19 +16,31 @@
 }
 
 .image{
-  float: left;
+  display: none;
+  /* float: left;
   height: 10px;
   weight: 10px;
   left: 10px;
-  opacity: 0.1;
+  opacity: 0.1; */
 }
 
 .subject{
   float: left;
-  top: -18px;
+  top: -16px;
+  left: 10px;
+  height: 58px;
+  width: 1000px;
+
+
+  white-space:nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
   position: absolute;
 }
+
 .subject > p {
+  float: left;
   font-family: "Gill Sans", sans-serif;
   font-weight: 100;
   display: inline;
