@@ -36,12 +36,12 @@ class Playlists extends Component{
     //5. After state is set, calls afterMount to process the returned Spotify data
   componentDidMount(){
     //console.log("componentDidMount ran!");
-    let test= read_cookie('data');
-    console.log("This is where the access token is located");
-    console.log(test);
-    let accessToken = test;
-		let mood = this.props.mood;
 
+    let val = read_cookie('data');
+    // let val1 = val.split("=");
+    let accessToken = val[1];
+		let mood = this.props.mood;
+    console.log(val);
     if (!accessToken){
       console.log("Uh oh, no access token found at mounting");
       return;
@@ -82,7 +82,9 @@ class Playlists extends Component{
       //console.log(trackList.playlists);
       //console.log(trackList.playlists.items[0]);
 
-      let accessToken = read_cookie('data');
+      let val = read_cookie('data');
+      // let val1 = val.split("=");
+      let accessToken = val[1];
   		let mood = this.props.mood;
     if (!accessToken){
       console.log("No access token at tracks level");
