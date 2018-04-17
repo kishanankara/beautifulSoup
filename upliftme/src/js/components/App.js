@@ -62,7 +62,7 @@ class App extends Component {
    for(var i=0;i<pathArray.length;i++){
      if(pathArray[i]==="secretKey" && i<pathArray.length-2){
        this.setState({mood: pathArray[i+1]});
-       this.setState({key: pathArray[i+2]});
+       // this.setState({key: pathArray[i+2]});
        break;
      }
    }
@@ -82,16 +82,16 @@ class App extends Component {
    return (
      <div className="App">
      {
-       (window.location.href=='http://localhost:3000/Happy' ||
-         window.location.href=='http://localhost:3000/Sad' ||
-         window.location.href=='http://localhost:3000/Chill' ||
-         window.location.href=='http://localhost:3000/Angry') ?
+       (window.location.href=='http://localhost:3000/secretKey/Happy/auth' ||
+         window.location.href=='http://localhost:3000/secretKey/Sad/auth' ||
+         window.location.href=='http://localhost:3000/secretKey/Chill/auth' ||
+         window.location.href=='http://localhost:3000/secretKey/Angry/auth') ?
 
          <div style={{'background-color':'#6600ff'}}>
            <div style={{'text-align': 'center','font-size': '50px'}}>
              <header class = "logo-header">
              </header>
-             <Playlists key={window.location.href} query={'Happy'} />
+             <Playlists  query={this.state.mood} />
            </div>
          </div>
          :
