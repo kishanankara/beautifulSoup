@@ -6,6 +6,7 @@ import MusicPlayer from 'react-responsive-music-player';
 import SpotifyIcon from './SpotifyIcon.js';
 import Spinner from 'react-spinkit';
 import img from '../../assets/back.jpg';
+import {bake_cookie,read_cookie,delete_cookie} from 'sfcookies';
 import Player from './Player.js';
 import Backtohome from './Backtohome.js';
 import Function from './Function.js';
@@ -35,9 +36,12 @@ class Playlists extends Component{
     //5. After state is set, calls afterMount to process the returned Spotify data
   componentDidMount(){
     //console.log("componentDidMount ran!");
-    let accessToken = this.props.secret;
-		let mood = this.props.mood;
 
+    let val = read_cookie('data');
+    // let val1 = val.split("=");
+    let accessToken = val[1];
+		let mood = this.props.mood;
+    console.log(val);
     if (!accessToken){
       console.log("Uh oh, no access token found at mounting");
       return;
@@ -78,7 +82,9 @@ class Playlists extends Component{
       //console.log(trackList.playlists);
       //console.log(trackList.playlists.items[0]);
 
-      let accessToken = this.props.secret;
+      let val = read_cookie('data');
+      // let val1 = val.split("=");
+      let accessToken = val[1];
   		let mood = this.props.mood;
     if (!accessToken){
       console.log("No access token at tracks level");
