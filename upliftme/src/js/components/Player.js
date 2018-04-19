@@ -29,6 +29,14 @@ class Player extends Component {
     this.setState({is_playing: !this.state.is_playing});
   }
 
+  voteUp(){
+    console.log("User voted song up"); // TODO
+  }
+
+  voteDown(){
+    console.log("User voted song down"); // TODO
+  }
+
   render() {
 
     const {playlist} = this.props
@@ -73,6 +81,12 @@ class Player extends Component {
           {/* <div className = "deleting"><i className="fa fa-times"></i></div> */}
           <div className = "playing" onClick={this.togglePlay.bind(this)} >
             <i className ={classnames(playerClsName)}></i>
+          </div>
+          <div className = "playing" onClick={this.voteUp.bind(this)} >
+            <i className = "fas fa-thumbs-up"></i>
+          </div>
+          <div className = "playing" onClick={this.voteDown.bind(this)} >
+            <i className = "fas fa-thumbs-down"></i>
           </div>
         </div>
 
