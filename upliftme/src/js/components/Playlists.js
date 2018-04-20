@@ -13,6 +13,7 @@ import Function from './Function.js';
 //import img from '../../assets/back.jpg';
 import '../../styles/playlist.css';
 import testing from '../../assets/back.jpg';
+import Moods from './Moods.js';
 
 // const playlist=[];
 var N = 10; // max size of playlist to be rendered on screen
@@ -309,7 +310,6 @@ class Playlists extends Component{
           {this.state.data ?
             <div className= "listing" >
               {/*console.log("We have data at render!")*/}
-
                 {this.state.tracks && this.state.details?
                 <div>
                   <div className = "wrapping"
@@ -323,6 +323,9 @@ class Playlists extends Component{
                     </div>
 
                     <Function/>
+                    <div className = "space"></div>
+                    <Moods/>
+
                   </div>
                   <div className = "scrolling">
                     {/*console.log("We have tracks at render!")*/}
