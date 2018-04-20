@@ -39,7 +39,8 @@
 
 .right_box{
   top: 0;
-  height: 100px;
+  /*height: 100px;*/
+  height: 130px;
   width: 160px;
   background-color: #6600ff;
   border-top-left-radius: 15px;
@@ -61,4 +62,19 @@
 
   font-size: 30px;
   cursor: pointer;
+}
+
+/*LOG OUT BUTTON STYLE*/
+.right_box > button{
+  background-color: transparent; /* Green */*/
+  border-color: white;
+  border-width: 2px;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 25px; 
+  font-family: Impact; 
+  letter-spacing: 2px; 
 }
