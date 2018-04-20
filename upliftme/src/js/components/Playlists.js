@@ -5,6 +5,20 @@ import queryString from 'query-string';
 import MusicPlayer from 'react-responsive-music-player';
 import SpotifyIcon from './SpotifyIcon.js';
 import Spinner from 'react-spinkit';
+import ReactVideoComponent from 'react-video-component';
+import Moods from './Moods.js';
+import Vid from '../../assets/vid.mp4';
+import Vidwebm from '../../assets/vid.webm';
+import Logo from '../../assets/logo.png';
+import Spotify from '../../assets/spotify.png';
+import Happy from '../../assets/happy.png';
+import Angry from '../../assets/angry.png';
+import Chill from '../../assets/chill.png';
+import Sad from '../../assets/sad.png';
+import Descimg from '../../assets/Running_2.jpg';
+
+import SearchBar from './SearchBar.js';
+
 
 // const playlist=[];
 var N = 10; // max size of playlist to be rendered on screen
@@ -20,7 +34,7 @@ class Playlists extends Component{
 
 
   // This initially mounts our playlist component.
-    //1. Uses the query-string package to parse the URL containing the access token. 
+    //1. Uses the query-string package to parse the URL containing the access token.
         //(Access token is generated after uses the "conenct to Spotify" button)
     //2. Ensures the query provided to access the playlist page is valid
     //3. Passes the query and access token to Spotify using Spotify API
@@ -58,14 +72,14 @@ class Playlists extends Component{
     //3. After 'tracks' state is verified complete, call pruneTracksList on tracks to remove tracks which:
       //lack album art
       //lack an associated url that points to the Spotify song
-  //*Note: afterMount must be called only after setState completes in componentDidMount. 
+  //*Note: afterMount must be called only after setState completes in componentDidMount.
   afterMount(trackList){
     /*Debug print statements*/
       //console.log("afterMount ran!");
       //console.log(trackList);
       //console.log(trackList.playlists);
       //console.log(trackList.playlists.items[0]);
-    
+
     let parsd = queryString.parse(window.location.search);
     let accessToken = parsd.access_token;
     if (!accessToken){
@@ -78,12 +92,12 @@ class Playlists extends Component{
 
     //fetch a random playlist instead of the first one
     var chosenPlaylistIndex = this.findLargePlaylist(trackList);
-    
+
     console.log('List of playlists to choose from: ', trackList.playlists); //List of playlists
     console.log('Random playlist index chosen: ', chosenPlaylistIndex);
     console.log('Playlist to be fetched: ',trackList.playlists.items[chosenPlaylistIndex]); //
     console.log('href to fetch: ',trackList.playlists.items[chosenPlaylistIndex].tracks.href);
-    
+
 
     fetch(trackList.playlists.items[chosenPlaylistIndex].tracks.href,{
       headers: {'Authorization': 'Bearer ' + accessToken}
@@ -166,7 +180,7 @@ class Playlists extends Component{
 
   //Returns the INDEX of a random playlist of size >== TARGET_PLAYLIST_SIZE
   findLargePlaylist(list){
-    //let arrayTracker = []; 
+    //let arrayTracker = [];
     var largePlaylistCounter = 0;
     // var TARGET_PLAYLIST_SIZE = 50;
     var largestPlaylist = 0;
@@ -282,8 +296,14 @@ class Playlists extends Component{
   //Renders our Playlist component. Runs any time the state of the component changes.
     //1. Sets visual properties of component
     //2. Checks that data and tracks exists within the Playlist component. If not, renders a loading message.
-    //3. For each track in the playlist, render a MusicPlayer object with corresponding album art, track name, and artist 
+    //3. For each track in the playlist, render a MusicPlayer object with corresponding album art, track name, and artist
+    // render(){
+    //   return(
+    //
+    //   );
+    // }
   render(){
+
     const mystyle ={
       backgroundColor: '#6600ff',
       fontSize: 13,
@@ -318,8 +338,15 @@ class Playlists extends Component{
     //console.log("render ran!");
     //console.log(this.state.data);
     return(
-      <div >
 
+      <div>
+        <div class="moods">
+            <img src={Logo}  class ="logo" width="130" height="55" onClick={() => window.location='http://localhost:3000/'}/>
+            <img src={Happy}  class ="happy" width="90" height="90" hspace="75" onClick={()=>window.location='http://localhost:8888/Happy'} />
+            <img src={Angry} class ="angry" width="90" height="90" hspace="75"  onClick={() =>window.location='http://localhost:8888/Angry'}/>
+            <img src={Sad} class ="sad" width="90" height="90" hspace="75" onClick={() => window.location='http://localhost:8888/Sad'}/>
+            <img src={Chill} class ="chill" width="90" height="90" hspace="75" onClick={() => window.location='http://localhost:8888/Chill'}/>
+        </div>
           {this.state.data ?
             <div>
               {/*console.log("We have data at render!")*/}
