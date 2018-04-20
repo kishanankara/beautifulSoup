@@ -2,13 +2,11 @@ import React, {Component} from 'react';
 import testing from '../../assets/back.jpg';
 import '../../styles/function.css';
 
+
+
 class Function extends Component {
-
   render() {
-
-
     return(
-
       <div className = "bigbox">
         <div className = "playerHere">
           {/*
@@ -40,8 +38,8 @@ class Function extends Component {
 
         </div>
       </div>
-
     );
+
   }
 }
 

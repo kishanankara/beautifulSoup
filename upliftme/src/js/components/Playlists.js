@@ -14,6 +14,8 @@ import Function from './Function.js';
 import '../../styles/playlist.css';
 import testing from '../../assets/back.jpg';
 
+
+
 // const playlist=[];
 var N = 10; // max size of playlist to be rendered on screen
 const TARGET_PLAYLIST_SIZE = 50; // min size of Spotify playlist to consider
@@ -318,9 +320,12 @@ class Playlists extends Component{
 
                     <Backtohome/>
                     <div className = "right_box">
+                     {/*LOG OUT BUTTON */}
+                      <button onClick={() =>window.location.href='http://localhost:8888/logout'}> LOG OUT </button>
                       <p>Welcome</p>
                       <p> {this.state.details.display_name} </p>
                     </div>
+
 
                     <Function/>
                   </div>
