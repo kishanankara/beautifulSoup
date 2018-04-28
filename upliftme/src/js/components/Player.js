@@ -52,7 +52,7 @@ class Player extends Component {
           player.play();
         }
       }
-      else if (this.state.is_playing){
+      else if (!this.state.is_playing){
         player.pause();
       }
     }
@@ -73,10 +73,13 @@ class Player extends Component {
             <p> / </p>
             <p> {activeMusic.artist}</p>
           </div>
+          <div className = "dislike"><i className="fas fa-thumbs-down"></i></div>
+           <div className = "like"><i className="fas fa-thumbs-up"></i></div>
           <div onClick={this.removeSong.bind(this)} className = "exiting"><i className="fa fa-times"></i></div>
           <div onClick={this.togglePlay.bind(this)} className = "playing">
             <i className={classnames(playerClsName)}></i>
           </div>
+
         </div>
 
         <audio ref = "player" autoPlay={this.state.is_playing} >

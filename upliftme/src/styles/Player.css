@@ -46,6 +46,35 @@
   cursor:pointer;
 }
 
+.dislike{
+  text-decoration: none;
+  height: 55px;
+  width: 50px;
+  font-size: 22.5px;
+  box-sizing: border-box;
+  text-align: center;
+  padding: 12.5px;
+  float:right;
+  color: red;
+  cursor:pointer;
+}
+
+.like{
+  text-decoration: none;
+  height: 55px;
+  width: 50px;
+  font-size: 22.5px;
+  box-sizing: border-box;
+  text-align: center;
+  padding: 12.5px;
+  float:right;
+  color: red;
+  cursor:pointer;
+}
+
+
+
+
 .exiting{
   text-decoration: none;
   height: 55px;
