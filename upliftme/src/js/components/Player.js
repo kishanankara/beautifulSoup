@@ -50,7 +50,7 @@ class Player extends Component {
       }
       else if (!this.state.is_playing){
         player.pause();
-        console.log("puase()");
+        console.log("pause()");
       }
     }
 

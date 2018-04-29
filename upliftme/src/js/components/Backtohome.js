@@ -7,6 +7,7 @@ class Backtohome extends Component {
       <div className = "smallbox">
       <div className = "back_home"><i class="fas fa-arrow-left" onClick={() => window.location='http://localhost:3000/'}></i></div>
       </div>
+
     );
   }
 }
