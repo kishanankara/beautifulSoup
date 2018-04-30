@@ -12,25 +12,32 @@ import Function from './Function.js';
 import '../../styles/playlist.css';
 import testing from '../../assets/back.jpg';
 import RefreshPlaylist from './RefreshPlaylist.js';
+import TestButton from './TestButton.js';
 
 
 var N = 10; // max size of playlist to be rendered on screen
 const TARGET_PLAYLIST_SIZE = 50; // min size of Spotify playlist to consider
 let backend_uri = 'http://localhost:8888';
+var trackID = 0;
 
 class Playlists extends Component{
 
   //{/* The second page of our Web App consists of a player which houses playable tracks and album art. Its name is Bill. */}
   constructor(props){
     super(props);
-    console.log('Playlist this.props: ',this.props);
-    this.state= {mood: this.props.mood}
+    console.log('Playlist this.props: ',props);
+    this.state= {
+      mood: this.props.mood,
+      currentlyPlayingIndex: 0,
+      currentlyPlayingID: 0
+    }
   }
+
+
 
 
   // This initially mounts our playlist component.
  //Should probably query backend for tracks and then set state after receiving response
- //Handle response errors here (by doing nothing on err)?
   componentDidMount(){
     //console.log("componentDidMount ran!");
 
@@ -62,21 +69,12 @@ class Playlists extends Component{
     else{
       console.log('Error: unknown mood in Playlist component!');
     }
-    // console.log('Playlist this.state.mood: ',this.state.mood);
 
   }
 
-
-
-  //Should only check to make sure there are 10 songs in the playlist. If no, pull more in.
-  //Note: This will be coded in a future iteration after functionality is developed to allow the user to delete tracks.
   componentDidUpdate(){
-    if(this.state.tracks){
-      console.log('TRACKS: ',this.state.tracks);
-    }
 
   }
-
 
   //Renders our Playlist component. Runs any time the state of the component changes.
     //1. Sets visual properties of component
@@ -119,9 +117,10 @@ class Playlists extends Component{
         {
           this.state.tracks ?
             <div>
-              <div className = "wrapping" >
+              <div className = "wrapping" style={{backgroundImage: `url(${this.state.tracks.data[this.state.currentlyPlayingIndex].cover})`}} >
                 <RefreshPlaylist/>                
                 <Backtohome/>
+                <TestButton/>
               </div>
 
               <div className = "scrolling">
@@ -132,10 +131,11 @@ class Playlists extends Component{
                       {
                         <div>
                           <Player playlist={[{
+                            id: m._id,
                             src: m.preview_url,
                             cover: m.cover,
                             title: m.title,
-                            artist: m.artist
+                            artist: m.artist,
                             }]}/>
                         </div>
                       }

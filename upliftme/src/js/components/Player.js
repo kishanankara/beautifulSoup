@@ -17,7 +17,7 @@ class Player extends Component {
   constructor(props){
     super(props);
 
-
+    console.log('MY PROPS: ',props);
     this.state = {
       activeMusicIndex: 0,
 
@@ -26,12 +26,18 @@ class Player extends Component {
   }
 
   togglePlay(){
-    this.setState({is_playing: !this.state.is_playing});
+    if(this.state.is_playing===false){
+      this.setState({is_playing:true});
+    }
+    else{
+      this.setState({is_playing: false});
+    }
   }
 
   render() {
 
     const {playlist} = this.props
+    console.log('HERE COME SOME PLAYLIST: ',playlist);
     const {activeMusicIndex} = this.state
     const activeMusic = playlist[activeMusicIndex]
 
@@ -85,13 +91,12 @@ class Player extends Component {
   }
 }
 
-
 document.addEventListener('play', function(e){
     var audios = document.getElementsByTagName('audio');
     for(var i = 0, len = audios.length; i < len;i++){
         if(audios[i] != e.target){
             audios[i].pause();
-            console.log("evenlistener");
+            console.log("eventlistener");
         }
     }
 }, true);
