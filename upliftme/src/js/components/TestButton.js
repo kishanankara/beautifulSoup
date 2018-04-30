@@ -2,8 +2,9 @@ import React, {Component} from 'react';
 import '../../styles/playlist.css';
 
 var http = require('http')
-
+var isUp = true;
 class TestButton extends Component {
+
   render() {
     return(
       <div className = "smallbox_right">
@@ -14,6 +15,9 @@ class TestButton extends Component {
 		  method: 'PUT'
 		};
 		console.log('=======GOT INTO ONCLICK=======');
+		console.log('isUp before: ',isUp);
+		isUp = !isUp;
+		console.log('isUp after: ',isUp);
 
 		var req = http.request(options, function(res) {
 		  console.log('STATUS: ' + res.statusCode);

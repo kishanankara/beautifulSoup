@@ -12,7 +12,6 @@ import Function from './Function.js';
 import '../../styles/playlist.css';
 import testing from '../../assets/back.jpg';
 import RefreshPlaylist from './RefreshPlaylist.js';
-import TestButton from './TestButton.js';
 
 
 var N = 10; // max size of playlist to be rendered on screen
@@ -25,12 +24,13 @@ class Playlists extends Component{
   //{/* The second page of our Web App consists of a player which houses playable tracks and album art. Its name is Bill. */}
   constructor(props){
     super(props);
-    console.log('Playlist this.props: ',props);
+    // console.log('Playlist this.props: ',props);
     this.state= {
       mood: this.props.mood,
       currentlyPlayingIndex: 0,
       currentlyPlayingID: 0
     }
+    // console.log('HERES MAH MOOD',this.state.mood);
   }
 
 
@@ -73,7 +73,7 @@ class Playlists extends Component{
   }
 
   componentDidUpdate(){
-
+    this.render();
   }
 
   //Renders our Playlist component. Runs any time the state of the component changes.
@@ -120,7 +120,6 @@ class Playlists extends Component{
               <div className = "wrapping" style={{backgroundImage: `url(${this.state.tracks.data[this.state.currentlyPlayingIndex].cover})`}} >
                 <RefreshPlaylist/>                
                 <Backtohome/>
-                <TestButton/>
               </div>
 
               <div className = "scrolling">
@@ -129,13 +128,14 @@ class Playlists extends Component{
                     this.state.tracks.data.map(m =>
                       <div key={m._id}>
                       {
-                        <div>
+                        <div onClick={() => this.componentDidUpdate()}>
                           <Player playlist={[{
                             id: m._id,
                             src: m.preview_url,
                             cover: m.cover,
                             title: m.title,
                             artist: m.artist,
+                            mood: this.state.mood,
                             }]}/>
                         </div>
                       }
