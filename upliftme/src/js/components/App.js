@@ -1,25 +1,25 @@
-import React, { Component, PropTypes } from 'react';
-import ReactDOM from 'react-dom';
-import queryString from 'query-string';
-import ReactPlayer from 'react-player';
-import ReactVideoComponent from 'react-video-component';
-import Vid from '../../assets/vid.mp4'; //{/* Chrome and safari use this format. */}
-import Vidwebm from '../../assets/vid.webm'; //{/* Firefox supports videos that are in webm format. */}
-import Logo from '../../assets/logo.png';
+import React, { Component } from 'react';
+// import ReactDOM from 'react-dom';
+// import queryString from 'query-string';
+// import ReactPlayer from 'react-player';
+// import ReactVideoComponent from 'react-video-component';
+// import Vid from '../../assets/vid.mp4'; //{/* Chrome and safari use this format. */}
+// import Vidwebm from '../../assets/vid.webm'; //{/* Firefox supports videos that are in webm format. */}
+// import Logo from '../../assets/logo.png';
 import Spotify from '../../assets/spotify.png';
-import Happy from '../../assets/happy.png';   // {/* In react components can have tags which are defined by other components this applies even for images and videos. */}
-import Angry from '../../assets/angry.png';
+// import Happy from '../../assets/happy.png';   // {/* In react components can have tags which are defined by other components this applies even for images and videos. */}
+// import Angry from '../../assets/angry.png';
 import LogoIcon from './LogoIcon.js';
 import Header from './Header.js';   //{/* This line imports the Header component from the Header file. */}
-import Chill from '../../assets/chill.png';
-import Sad from '../../assets/sad.png';
-import Descimg from '../../assets/Running_2.jpg';
-import Moods from './Moods.js';    // {/*This line importst the Moods file from the same directory location.*/}
+// import Chill from '../../assets/chill.png';
+// import Sad from '../../assets/sad.png';
+// import Descimg from '../../assets/Running_2.jpg';
+// import Moods from './Moods.js';    // {/*This line importst the Moods file from the same directory location.*/}
 // {/* import TrackPlayer from 'react-native-track-player'; */}
 import '../../styles/style.css';
 import Playlists from './Playlists.js';
 import SpotifyIcon from './SpotifyIcon.js';
-import goBack from './../../assets/goback.png';
+// import goBack from './../../assets/goback.png';
 
 import '../../styles/first_media.css';
 import '../../styles/second_media.css';
@@ -75,44 +75,44 @@ class App extends Component {
      <div className="App">
      {
       
-        window.location.href=='http://localhost:3000/Happy' ?
+        window.location.href==='http://localhost:3000/Happy' ?
           //render happy playlist
-          <div style={{'background-color':'#6600ff'}}>
-           <div style={{'text-align': 'center','font-size': '50px'}}>
-             <header class = "logo-header">
+          <div style={{'backgroundColor':'#6600ff'}}>
+           <div style={{'textAlign': 'center','fontSize': '50px'}}>
+             <header className = "logo-header">
              </header>
              <Playlists  mood={'happy'} />
            </div>
           </div>
         :
 
-        window.location.href=='http://localhost:3000/Sad' ?
+        window.location.href==='http://localhost:3000/Sad' ?
           //render sad playlist
-          <div style={{'background-color':'#6600ff'}}>
-           <div style={{'text-align': 'center','font-size': '50px'}}>
-             <header class = "logo-header">
+          <div style={{'backgroundColor':'#6600ff'}}>
+           <div style={{'textAlign': 'center','fontSize': '50px'}}>
+             <header className = "logo-header">
              </header>
              <Playlists  mood={'sad'} />
            </div>
           </div>
         :
 
-        window.location.href=='http://localhost:3000/Angry' ?
+        window.location.href==='http://localhost:3000/Angry' ?
           //render angry playlist
-          <div style={{'background-color':'#6600ff'}}>
-           <div style={{'text-align': 'center','font-size': '50px'}}>
-             <header class = "logo-header">
+          <div style={{'backgroundColor':'#6600ff'}}>
+           <div style={{'textAlign': 'center','fontSize': '50px'}}>
+             <header className = "logo-header">
              </header>
              <Playlists  mood={'angry'} />
            </div>
           </div>
         :
 
-        window.location.href=='http://localhost:3000/Chill' ?
+        window.location.href==='http://localhost:3000/Chill' ?
           //render chill playlist
-          <div style={{'background-color':'#6600ff'}}>
-           <div style={{'text-align': 'center','font-size': '50px'}}>
-             <header class = "logo-header">
+          <div style={{'backgroundColor':'#6600ff'}}>
+           <div style={{'textAlign': 'center','fontSize': '50px'}}>
+             <header className = "logo-header">
              </header>
              <Playlists  mood={'chill'} />
            </div>
@@ -120,7 +120,7 @@ class App extends Component {
         :
 
           <div>
-           <header class ="logo-header">
+           <header className ="logo-header">
              <ReloadItSelf/>
              <SpotifyIcon data='Connect with Spotify' img={Spotify}/>
            </header>

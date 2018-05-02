@@ -19,7 +19,7 @@ class Player extends Component {
   constructor(props){
     super(props);
 
-    // console.log('MY PROPS: ',props);
+    //Return here: Left off play_display for now
     this.state = {
       activeMusicIndex: 0,
       trackID: props.playlist[0].id,
@@ -27,26 +27,50 @@ class Player extends Component {
       isDisliked: false,
       probPoints : props.probPoints,
       mood: props.playlist[0].mood,
-      is_playing: false
+      is_playing: props.playlist[0].is_playing,
+      title: props.playlist[0].title,
+      artist: props.playlist[0].artist,
+
     };
-    console.log('trackID: ',this.state.trackID);
+
+    this.updateParent_Child = this.updateParent_Child.bind(this);
+
+  }
+
+  updateParent_Child(trackID,playerState){
+    this.props.playlist[0].updateParent(trackID,playerState);
   }
 
   togglePlay(){
+    console.log('Entered togglePlay');
     if(this.state.is_playing===false){
-      this.setState({is_playing:true});
+      this.setState({is_playing:true},function(){this.updateParent_Child(this.state.trackID,this.state)});
     }
     else{
       this.setState({is_playing: false});
     }
   }
 
+
+  siblingMeth(){
+    console.log('siblingMeth called on: ',this.state.trackID);
+  }
+
+
+
   render() {
 
     const {playlist} = this.props
-    console.log('HERE COME SOME PLAYLIST: ',playlist);
+    // console.log('HERE COME SOME PLAYLIST: ',playlist);
     const {activeMusicIndex} = this.state
+    // console.log('What the hell is an activeMusicIndex: ',activeMusicIndex);
     const activeMusic = playlist[activeMusicIndex]
+    // console.log('What the hell is activeMusic: ',activeMusic);
+
+    console.log('**Track ',activeMusic.title,' was rendered**');
+    
+
+    //Return here. Go through list of components and flip their images and player status?
 
     if(this.refs.player){
       console.log("currentsong: ",this.refs.player.currentSrc);
@@ -61,12 +85,12 @@ class Player extends Component {
       if(player.paused){
         if(this.state.is_playing){
           player.play();
-          console.log("play()");
+          console.log("player.paused, so play()");
         }
       }
       else if (!this.state.is_playing){
         player.pause();
-        console.log("pause()");
+        console.log("player.pause, so pause()");
       }
     }
 
@@ -78,7 +102,6 @@ class Player extends Component {
 
     return(
       <div className = "player">
-
         <div className = "inPlayer">
           <img className = "image" src ={activeMusic.cover} />
           <div className = "subject">
@@ -86,6 +109,8 @@ class Player extends Component {
             <p> / </p>
             <p> {activeMusic.artist}</p>
           </div>
+
+
 
             <div className = "playing" onClick={()=>
               {
@@ -116,12 +141,13 @@ class Player extends Component {
                   req.write('data\n');
                   req.end();
               }
-
-
-
             } >
-              <i class ="fa fa-thumbs-up"></i>
+              <i className ="fa fa-thumbs-up"></i>
             </div>
+
+
+
+
             <div className = "playing" onClick={()=>
             {
                   var mood = this.state.mood;
@@ -154,7 +180,7 @@ class Player extends Component {
 
             } >
 
-              <i class ="fa fa-thumbs-down"></i>
+              <i className ="fa fa-thumbs-down"></i>
             </div>
           <div className = "playing" onClick={this.togglePlay.bind(this)} >
             <i className ={classnames(playerClsName)}></i>
@@ -177,9 +203,10 @@ document.addEventListener('play', function(e){
     for(var i = 0, len = audios.length; i < len;i++){
         if(audios[i] != e.target){
             audios[i].pause();
-            console.log('pause()!');
+            // console.log('pause()!');
             //Have all player components that are not the currently playing track (e.target?) switch to play display
             console.log("eventlistener");
+
         }
     }
 }, true);

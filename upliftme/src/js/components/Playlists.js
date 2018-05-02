@@ -1,36 +1,45 @@
-import React, { Component, PropTypes } from 'react';
-import ReactDOM from 'react-dom';
-import ReactPlayer from 'react-player';
-import queryString from 'query-string';
-import MusicPlayer from 'react-responsive-music-player';
-import SpotifyIcon from './SpotifyIcon.js';
+import React, { Component} from 'react';
+// import ReactDOM from 'react-dom';
+// import ReactPlayer from 'react-player';
+// import queryString from 'query-string';
+// import MusicPlayer from 'react-responsive-music-player';
+// import SpotifyIcon from './SpotifyIcon.js';
 import Spinner from 'react-spinkit';
-import img from '../../assets/back.jpg';
+// import img from '../../assets/back.jpg';
 import Player from './Player.js';
 import Backtohome from './Backtohome.js';
-import Function from './Function.js';
+// import Function from './Function.js';
 import '../../styles/playlist.css';
-import testing from '../../assets/back.jpg';
+// import testing from '../../assets/back.jpg';
 import RefreshPlaylist from './RefreshPlaylist.js';
 
 
-var N = 10; // max size of playlist to be rendered on screen
-const TARGET_PLAYLIST_SIZE = 50; // min size of Spotify playlist to consider
 let backend_uri = 'http://localhost:8888';
-var trackID = 0;
+
+
+function getTrackIndex(trackID,tracks){
+  for(var i=0; i<tracks.length; i++){
+    if(tracks[i]._id===trackID){
+      // console.log('Track is located at index: ',i);
+      return i;
+    }
+  }
+  return -1;
+}
+
 
 class Playlists extends Component{
 
   //{/* The second page of our Web App consists of a player which houses playable tracks and album art. Its name is Bill. */}
   constructor(props){
     super(props);
-    // console.log('Playlist this.props: ',props);
     this.state= {
       mood: this.props.mood,
       currentlyPlayingIndex: 0,
-      currentlyPlayingID: 0
+      currentlyPlayingID: -1
     }
-    // console.log('HERES MAH MOOD',this.state.mood);
+    this.updateParent = this.updateParent.bind(this);
+
   }
 
 
@@ -72,45 +81,32 @@ class Playlists extends Component{
 
   }
 
-  componentDidUpdate(){
-    this.render();
+  //Consider implementing 'pass all of child state up, make deep copy of playlist state, do setState' as written in email
+  updateParent(trackID_fromChild, child_State){  //Right now just implement so album art is updated
+      // console.log('TrackID Im looking for: ',trackID_fromChild);
+      // console.log('My parent state: ',this.state);
+      
+      //Find index of trackID passed from child player
+      var trackIndex = getTrackIndex(trackID_fromChild,this.state.tracks.data);
+      // console.log('Index of selected track: ',trackIndex);
+      
+      //Set this.state.currentlyPlayingIndex to this index value
+      // this.setState({currentlyPlayingIndex:trackIndex},function(){console.log('Index has been updated')});
+      this.state.currentlyPlayingIndex = trackIndex;  //Return here. Can I set global variables above this class that updateParent can use to communicate with other parts of this component?
+      // this.forceUpdate();
+      console.log('this.ref is: ',this.ref);
+      console.log('this.foo is: ',this.foo);
+      this.foo.siblingMeth();
   }
 
-  //Renders our Playlist component. Runs any time the state of the component changes.
-    //1. Sets visual properties of component
-    //2. Checks that data and tracks exists within the Playlist component. If not, renders a loading message.
-    //3. For each track in the playlist, render a MusicPlayer object with corresponding album art, track name, and artist
+  insertTrackId(trackID){
+    return trackID;
+  }
+
+
+  //Can do turnary check on if (m._id === currentlyPlayingId) and if yes, render playing button, else render non-playing button
   render(){
-    // const mystyle ={
-    //   backgroundColor: '#6600ff',
-    //   fontSize: 13,
-    //   height: 250,
-    //   width: 1500,
-    //   fontColor: 'white',
-    //   flex:1,
-    //   borderStyle : 'solid',
-    //   borderColor: 'black'
-    // }
-    // const elementsize ={
-    //   backgroundColor: '#6600ff',
-    //   height: 250,
-    //   width: 1400,
-    //   fontColor: 'white',
-    //   alignItems: 'center',
-    //   justifyContent : 'flex-start'
-    //
-    // }
-    // const componentsize ={
-    //   backgroundColor: 'white',
-    //   height: 5000,
-    //   width: 1400,
-    //   flex:1,
-    //   fontColor: 'white',
-    //   flexDirection: 'column',
-    //   alignItems: 'center',
-    //   justifyContent : 'flex-start'
-    //
-    // }
+
     return(
       <div >
 
@@ -128,15 +124,23 @@ class Playlists extends Component{
                     this.state.tracks.data.map(m =>
                       <div key={m._id}>
                       {
-                        <div onClick={() => this.componentDidUpdate()}>
-                          <Player playlist={[{
+                        <div>
+                          <Player
+                          ref = {foo => {
+                            this.foo = foo;
+                          }}
+
+                          playlist={[{
                             id: m._id,
                             src: m.preview_url,
                             cover: m.cover,
                             title: m.title,
                             artist: m.artist,
                             mood: this.state.mood,
-                            }]}/>
+                            is_playing: m.is_playing,
+                            updateParent: this.updateParent,
+                            }]}
+                          />
                         </div>
                       }
                       </div>
@@ -144,10 +148,7 @@ class Playlists extends Component{
                   }
                   </div>
 
-
-
               </div>
-
 
             </div>
 

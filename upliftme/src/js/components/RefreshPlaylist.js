@@ -5,7 +5,7 @@ class RefreshPlaylist extends Component {
   render() {
     return(
       <div className = "smallbox_right">
-      <div className = "refresh_playlist"><i class="fas fa-sync" onClick={() => window.location=window.location.pathname}></i></div>
+      <div className = "refresh_playlist"><i className="fas fa-sync" onClick={() => window.location=window.location.pathname}></i></div>
       </div>
     );
   }
