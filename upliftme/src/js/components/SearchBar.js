@@ -1,12 +1,14 @@
-import React, { Component, PropTypes } from 'react';
-import ReactDOM from 'react-dom';
-import ReactPlayer from 'react-player';
-import Vid from '../../assets/vid.mp4';
-import Vidwebm from '../../assets/vid.webm';
-import Moods from './Moods.js';
+import React, { Component} from 'react';
+// import ReactDOM from 'react-dom';
+// import ReactPlayer from 'react-player';
+// import Vid from '../../assets/vid.mp4';
+// import Vidwebm from '../../assets/vid.webm';
+// import Moods from './Moods.js';
 import queryString from 'query-string';
 //import Search from 'react-search-box';
 
+
+//NOT CURRENTLY BEING USED
 
 class SearchBar extends Component{
 

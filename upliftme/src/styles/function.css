@@ -12,7 +12,8 @@
 .cover_pic{
   height: 238px;
   width: 240px;
-  float:left;
+  float:right;
+
   border-radius: 20px;
   cursor: default;
 }
