@@ -49,6 +49,9 @@ let user_data={
   name : 'Example'
 };
 
+const frontendUri = 'http://localhost:3000';
+const backendUri = 'http://localhost:8888';
+
 class App extends Component {
   constructor(props){
     super(props);
@@ -75,8 +78,7 @@ class App extends Component {
      <div className="App">
      {
       
-        window.location.href==='http://localhost:3000/Happy' ?
-          //render happy playlist
+        window.location.href=== frontendUri+'/Happy' ?
           <div style={{'backgroundColor':'#6600ff'}}>
            <div style={{'textAlign': 'center','fontSize': '50px'}}>
              <header className = "logo-header">
@@ -86,8 +88,7 @@ class App extends Component {
           </div>
         :
 
-        window.location.href==='http://localhost:3000/Sad' ?
-          //render sad playlist
+        window.location.href===frontendUri+'/Sad' ?
           <div style={{'backgroundColor':'#6600ff'}}>
            <div style={{'textAlign': 'center','fontSize': '50px'}}>
              <header className = "logo-header">
@@ -97,8 +98,7 @@ class App extends Component {
           </div>
         :
 
-        window.location.href==='http://localhost:3000/Angry' ?
-          //render angry playlist
+        window.location.href===frontendUri+'/Angry' ?
           <div style={{'backgroundColor':'#6600ff'}}>
            <div style={{'textAlign': 'center','fontSize': '50px'}}>
              <header className = "logo-header">
@@ -108,8 +108,7 @@ class App extends Component {
           </div>
         :
 
-        window.location.href==='http://localhost:3000/Chill' ?
-          //render chill playlist
+        window.location.href===frontendUri+'/Chill' ?
           <div style={{'backgroundColor':'#6600ff'}}>
            <div style={{'textAlign': 'center','fontSize': '50px'}}>
              <header className = "logo-header">
@@ -132,6 +131,6 @@ class App extends Component {
    );
  }
 }
-
-
+export{frontendUri};
+export{backendUri};
 export default App;

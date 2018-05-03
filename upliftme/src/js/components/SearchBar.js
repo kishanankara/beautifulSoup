@@ -8,6 +8,8 @@ import queryString from 'query-string';
 //import Search from 'react-search-box';
 
 
+//NOT CURRENTLY BEING USED
+
 class SearchBar extends Component{
 
   constructor(props) {
