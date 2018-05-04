@@ -9,6 +9,12 @@
     font-size: 40px;
   }
 
+  .moods{
+    display: inline;
+      font-family: 'Indie Flower', cursive;
+        font-size: 15px;
+
+  }
   .v-header{
 
     height:92vh;
@@ -33,6 +39,12 @@
 
   }
 
+  .moods{
+    display: inline;
+      font-family: 'Indie Flower', cursive;
+        font-size: 15px;
+
+  }
   .header-content p{
     font-size: 35px;
   }
@@ -80,6 +92,13 @@
 
   }
 
+  .moods{
+    display: inline;
+      font-family: 'Indie Flower', cursive;
+        font-size: 15px;
+
+  }
+
   .signin-btn{
     top: -30px;
   }
@@ -95,6 +114,12 @@
 
   }
 
+  .moods{
+    display: inline;
+      font-family: 'Indie Flower', cursive;
+        font-size: 15px;
+
+  }
 
   .happy {
     width:65px;

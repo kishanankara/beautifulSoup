@@ -1,13 +1,11 @@
 .player{
   position: relative;
-  background-color: #6600ff;
+/*  background-color: #6600ff;*/
+  background-color: #404040;
   width: 100%;
   height: 58px;
   border-radius: 5px;
   border: 1px solid #9090901a;
-}
-.listing{
-  overflow: hidden;
 }
 
 .player:hover {
@@ -19,32 +17,79 @@
 }
 
 .image{
-  float: left;
+  display: none;
+  /* float: left;
   height: 10px;
   weight: 10px;
   left: 10px;
-  opacity: 0.1;
+  opacity: 0.1; */
 }
 
 .subject{
   float: left;
-  top: -18px;
+  top: -16px;
+  left: 10px;
+  height: 58px;
+  width: 70%;
+
+
+  white-space:nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
   position: absolute;
 }
+
 .subject > p {
+  float: left;
   font-family: "Gill Sans", sans-serif;
   font-weight: 100;
+  text-overflow: ellipsis;
   display: inline;
   color: white;
   font-size: 25px;
 }
 
+.buttonWrapper{
+  float:right;
+  height: 55px;
+  width: 30%;
+  box-sizing: border-box;
+  text-align: center;
+
+}
+
 .playing{
   text-decoration: none;
   height: 55px;
-  width: 50px;
+  width: 20%;
   font-size: 22.5px;
-  box-sizing: border-box;
+  box-sizing: border-box; 
+  text-align: center;
+  padding: 12.5px;
+  float:right;
+  color: orange;
+  cursor:pointer;
+}
+
+.playing_liked{
+  text-decoration: none;
+  height: 55px;
+  width: 20%;
+  font-size: 22.5px;
+  box-sizing: border-box; 
+  text-align: center;
+  padding: 12.5px;
+  float:right;
+  color: green;
+  cursor:pointer;
+}
+.playing_disLiked{
+  text-decoration: none;
+  height: 55px;
+  width: 20%;
+  font-size: 22.5px;
+  box-sizing: border-box; 
   text-align: center;
   padding: 12.5px;
   float:right;
