@@ -24,7 +24,7 @@ class Header extends Component{
             <p>Choose a mood and we will create a playlist that matches your mood. </p>
             <div className="spacer"></div>
             <Moods/>
-          </div>
+            </div>
           </header>
     );
   }
