@@ -18,6 +18,7 @@
     "react-scripts": "1.1.1",
     "react-search-box": "0.0.6",
     "react-spinkit": "^3.0.0",
+    "react-tooltip": "^3.5.1",
     "react-video-component": "^1.4.3",
     "sfcookies": "^1.0.2"
   },
